@@ -5,6 +5,7 @@ export const reset = css`
     font-family: 'Pretendard';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
       format('woff');
+    font-weight: 400;
     font-style: normal;
   }
 
@@ -18,13 +19,13 @@ export const reset = css`
   * {
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Pretendard';
+    font-size: 16px;
+    font-family: 'system-ui';
     word-break: keep-all;
   }
 
   html,
   body {
-    font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
 
