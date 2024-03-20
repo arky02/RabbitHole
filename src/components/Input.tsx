@@ -29,4 +29,5 @@ const InputStyleWrapper = styled.input`
   border-radius: 20px;
   background: #e4e4e4;
   border: none;
+  font-size: 16px;
 `
