@@ -1,4 +1,4 @@
-import Button from '@/components/Button'
+import Button from '@/components/Buttons/Button'
 import Input from '@/components/Input'
 import styled from 'styled-components'
 import Image from 'next/image'
