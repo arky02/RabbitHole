@@ -1,10 +1,12 @@
 import Image from 'next/image';
-import { ShadowWrapper } from './ShortcutMenuChip';
 import Class from '/public/icon/class.svg';
 import styled from 'styled-components';
 import PlayBtn from '/public/image/playBtn.png';
 import { FlexColumn, FlexRowCenterAll } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
+import { useState } from 'react';
+import Checked from '/public/icon/checked.svg';
+import Checkbox from './Buttons/Checkbox';
 
 interface ClassProp {
   school_id: number;
@@ -20,18 +22,33 @@ function ClassChip({
   classInfo: ClassProp;
   hasCheckbox?: boolean;
 }) {
+  const [isChecked, setIsChecked] = useState(false);
   return (
-    <ShadowWrapper2 href="/">
-      {hasCheckbox && <StyledCheckbox type="checkbox" />}
-      <Image src={Class} width={66} height={43} alt="class"></Image>
-      <ColumnWrapper>
-        <ClassName>{classInfo.className}</ClassName>
-        <ButtonWrapper>
-          <GrayText>실행하러 가기</GrayText>
-          <button>
-            <Image src={PlayBtn} width={50} height={50} alt="play"></Image>
-          </button>
-        </ButtonWrapper>
+    <ShadowWrapper2 $hasCheckbox={hasCheckbox}>
+      {hasCheckbox && (
+        <Checkbox
+          onClick={() => setIsChecked((prev) => !prev)}
+          isChecked={isChecked}
+        />
+      )}
+      <Image
+        src={Class}
+        width={hasCheckbox ? 57 : 66}
+        height={hasCheckbox ? 37 : 43}
+        alt="class"
+      ></Image>
+      <ColumnWrapper $hasCheckbox={hasCheckbox}>
+        <ClassName $hasCheckbox={hasCheckbox}>{classInfo.className}</ClassName>
+        {!hasCheckbox ? (
+          <ButtonWrapper>
+            <GrayText $hasCheckbox={hasCheckbox}>실행하러 가기</GrayText>
+            <button>
+              <Image src={PlayBtn} width={50} height={50} alt="play"></Image>
+            </button>
+          </ButtonWrapper>
+        ) : (
+          <GrayText $hasCheckbox={hasCheckbox}>실행하러 가기</GrayText>
+        )}
       </ColumnWrapper>
     </ShadowWrapper2>
   );
@@ -39,33 +56,48 @@ function ClassChip({
 
 export default ClassChip;
 
-const ClassName = styled.h2`
+const ClassName = styled.h2<{ $hasCheckbox: boolean }>`
   color: #000;
-  font-size: 18px;
+  font-size: ${({ $hasCheckbox }) => ($hasCheckbox ? '16px' : '18px')};
   font-weight: 700;
 `;
 
-const GrayText = styled.h3`
+const GrayText = styled.h3<{ $hasCheckbox: boolean }>`
   color: #666;
-  font-size: 15px;
+  font-size: ${({ $hasCheckbox }) => ($hasCheckbox ? '11px' : '15px')};
   font-weight: 700;
   white-space: nowrap;
 `;
 
-const ColumnWrapper = styled(FlexColumn)`
-  justify-content: space-between;
+const ColumnWrapper = styled(FlexColumn)<{ $hasCheckbox: boolean }>`
+  justify-content: ${({ $hasCheckbox }) =>
+    $hasCheckbox ? 'flex-start ' : 'space-between'};
+  margin-left: ${({ $hasCheckbox }) => ($hasCheckbox ? '18px' : '0px')};
 `;
 
 const ButtonWrapper = styled(FlexRowCenterAll)``;
 
-const ShadowWrapper2 = styled(ShadowWrapper)`
+const ShadowWrapper2 = styled.div<{ $hasCheckbox: boolean }>`
   width: 300px;
-  height: 160px;
+  display: flex;
+  border-radius: 40px;
+  background: white;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 50px 25px 0px 37px;
+  height: 175px;
+  gap: 30px;
+  height: ${({ $hasCheckbox }) => ($hasCheckbox ? '110px' : '160px')};
   padding: 40px 30px 20px 30px;
+  ${({ $hasCheckbox }) =>
+    $hasCheckbox &&
+    'gap:0px; align-items: center;  justify-content: flex-start; padding: 0 0 0 25px;'}
 `;
 
-const StyledCheckbox = styled.input`
-  border-radius: 20px;
-  border-color: ${COLORS.GRAY_CD};
-  border-width: 1px;
+export const StyledCheckbox = styled.button`
+  border-radius: 4px;
+  border: 1px solid ${COLORS.GRAY_CD};
+  width: 21px;
+  height: 21px;
+  margin-right: 15px;
+  position: relative;
 `;
