@@ -14,6 +14,12 @@ import StudentAlertPopup from './Popups/StudentAlertPopup';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PageTitle from './PageTItle';
+import { useState } from 'react';
+import WhiteBook from '/public/icon/whiteBook.svg';
+import WhiteNewspaper from '/public/icon/whiteNewspaper.svg';
+import WhiteBookWithPen from '/public/icon/whiteBookwithpencil.svg';
+import WhiteSetting from '/public/icon/whiteSetting.svg';
+import WhitePerson from '/public/icon/whitePerson.svg';
 
 function Nav({ hasSideBar = false }: { hasSideBar?: boolean }) {
   const router = useRouter();
@@ -68,14 +74,18 @@ function OptionButtons({
   hasSideBar?: boolean;
 }) {
   const router = useRouter();
+  const [isBtnHovered, setIsBtnHovered] = useState([0, 0, 0, 0, 0]);
 
   return (
     <ButtonWrapper $hasSideBar={hasSideBar}>
       {isHomePage || (
         <Button
-          type="GoBack"
+          type="PinkGrad"
           text={'이전 페이지'}
-          style={{ marginRight: '30px' }}
+          style={{
+            marginRight: '30px',
+            boxShadow: '0px 0px 17.1px 0px rgba(0, 0, 0, 0.1)',
+          }}
           onClick={() => router.back()}
         >
           <Image
@@ -88,20 +98,37 @@ function OptionButtons({
       <Button
         type="Options"
         text="수업안 관리"
-        onClick={() => router.push('/manageClass')}
+        onClick={() => router.push('/manage-lesson')}
+        onMouseEnter={() => setIsBtnHovered([1, 0, 0, 0, 0])}
+        onMouseLeave={() => setIsBtnHovered([0, 0, 0, 0, 0])}
       >
-        <Image src={Book} alt="book" style={{ marginRight: '10px' }} />
+        <Image
+          src={isBtnHovered[0] ? WhiteBook : Book}
+          alt="book"
+          style={{ marginRight: '10px' }}
+        />
       </Button>
       <Button
         type="Options"
         text="수업 실행"
-        onClick={() => router.push('/executeClass')}
+        onClick={() => router.push('/execute-class')}
+        onMouseEnter={() => setIsBtnHovered([0, 1, 0, 0, 0])}
+        onMouseLeave={() => setIsBtnHovered([0, 0, 0, 0, 0])}
       >
-        <Image src={BookWithPen} alt="book" style={{ marginRight: '10px' }} />
-      </Button>
-      <Button type="Options" text="성적 관리">
         <Image
-          src={Newspaper}
+          src={isBtnHovered[1] ? WhiteBookWithPen : BookWithPen}
+          alt="book"
+          style={{ marginRight: '10px' }}
+        />
+      </Button>
+      <Button
+        type="Options"
+        text="성적 관리"
+        onMouseEnter={() => setIsBtnHovered([0, 0, 1, 0, 0])}
+        onMouseLeave={() => setIsBtnHovered([0, 0, 0, 0, 0])}
+      >
+        <Image
+          src={isBtnHovered[2] ? WhiteNewspaper : Newspaper}
           alt="newspaper"
           style={{ marginRight: '10px' }}
         />
@@ -109,12 +136,27 @@ function OptionButtons({
       <Button
         type="Options"
         text="학생 관리"
-        onClick={() => router.push('/manageStudent')}
+        onClick={() => router.push('/manage-student')}
+        onMouseEnter={() => setIsBtnHovered([0, 0, 0, 1, 0])}
+        onMouseLeave={() => setIsBtnHovered([0, 0, 0, 0, 0])}
       >
-        <Image src={Person} alt="profile" style={{ marginRight: '10px' }} />
+        <Image
+          src={isBtnHovered[3] ? WhitePerson : Person}
+          alt="profile"
+          style={{ marginRight: '10px' }}
+        />
       </Button>
-      <Button type="Options" text="기타 설정">
-        <Image src={Setting} alt="setting" style={{ marginRight: '10px' }} />
+      <Button
+        type="Options"
+        text="기타 설정"
+        onMouseEnter={() => setIsBtnHovered([0, 0, 0, 0, 1])}
+        onMouseLeave={() => setIsBtnHovered([0, 0, 0, 0, 0])}
+      >
+        <Image
+          src={isBtnHovered[4] ? WhiteSetting : Setting}
+          alt="setting"
+          style={{ marginRight: '10px' }}
+        />
       </Button>
     </ButtonWrapper>
   );
@@ -145,7 +187,7 @@ const ColumnWrapper = styled.div<{ $hasSideBar: boolean }>`
   background: #ffffffea;
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(5px);
-  z-index: 5;
+  z-index: 10;
   justify-content: ${({ $hasSideBar }) =>
     $hasSideBar ? 'space-between' : 'flex-start'};
 `;
