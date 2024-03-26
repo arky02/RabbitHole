@@ -15,6 +15,7 @@ interface SideBarProps {
   }[];
 }
 function SideBar({ content }: SideBarProps) {
+  const router = useRouter();
   return (
     <Wrapper>
       <Image
@@ -23,6 +24,7 @@ function SideBar({ content }: SideBarProps) {
         width={128}
         height={89}
         style={{ marginBottom: 55 }}
+        onClick={() => router.push('/')}
       />
       <OptionContents content={content} />
     </Wrapper>
@@ -65,7 +67,9 @@ const Wrapper = styled.div`
   box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.1);
   padding: 80px 40px;
   height: 100vh;
-  z-index: 10;
+  z-index: 100;
+  position: fixed;
+  background-color: white;
 `;
 
 const ContentWrapper = styled(FlexColumnCenterAll)`
