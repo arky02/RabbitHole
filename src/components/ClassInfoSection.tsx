@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Separator from '/public/icon/separator.svg';
 import Image from 'next/image';
 import DefaultProfile from '/public/icon/defaultProfileImgIcon.svg';
 import { COLORS } from '@/styles/palatte';
@@ -44,7 +43,17 @@ function ClassInfoSection() {
         <MyClassContainer>
           <TextContainer>
             <TitleText>나의 담당 클래스</TitleText>
-            <Button type="SmallGray" text="클래스 관리 페이지로 이동" />
+            <Button type="GrayOutline">
+              <span
+                style={{
+                  fontSize: '11px',
+                  fontWeight: 700,
+                  color: COLORS.GRAY_66,
+                }}
+              >
+                클래스 관리 페이지로 이동
+              </span>
+            </Button>
           </TextContainer>
           <ClassListContainer>
             <MyClassButton className="1학년 영어 A분반"></MyClassButton>
