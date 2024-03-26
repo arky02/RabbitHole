@@ -21,3 +21,9 @@ export const ShadowDiv = styled.div`
   width: fit-content;
   height: fit-content;
 `;
+
+export const Border20GrayD9Div = styled.div`
+  border-radius: 20px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+`;
