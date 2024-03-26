@@ -5,21 +5,40 @@ import styled, { css } from 'styled-components';
 import HomeImg from '/public/icon/home.svg';
 
 interface ButtonProps {
-  type: 'Login' | 'GoBack' | 'Options' | 'WhiteShadow' | 'SmallGray';
-  text: string;
+  type: 'Login' | 'PinkGrad' | 'Options' | 'WhiteShadow' | 'GrayOutline';
+  text?: string;
   style?: {};
   children?: ReactNode;
+  forDiv?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
-function Button({ text, children, onClick, type, style }: ButtonProps) {
+function Button({
+  text = '',
+  children,
+  onClick,
+  type,
+  style,
+  forDiv = false,
+  onMouseEnter,
+  onMouseLeave,
+}: ButtonProps) {
   return type === 'WhiteShadow' ? (
-    <StyledButton $type={type} onClick={onClick} style={style}>
+    <StyledButton $type={type} onClick={onClick} style={style} $forDiv={forDiv}>
       {text}
       {children}
     </StyledButton>
   ) : (
-    <StyledButton $type={type} onClick={onClick} style={style}>
+    <StyledButton
+      $type={type}
+      onClick={onClick}
+      style={style}
+      $forDiv={forDiv}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {children}
       {text}
     </StyledButton>
@@ -29,17 +48,18 @@ function Button({ text, children, onClick, type, style }: ButtonProps) {
 export default Button;
 
 const StyledButton = styled.button<{
-  $type: 'Login' | 'GoBack' | 'Options' | 'WhiteShadow' | 'SmallGray';
+  $type: 'Login' | 'PinkGrad' | 'Options' | 'WhiteShadow' | 'GrayOutline';
+  $forDiv: boolean;
 }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: var(--button-border);
   background: ${COLORS.MAIN_GRAD};
-  color: white;
+  color: ${({ $type }) => ($type === 'GrayOutline' ? 'black' : 'white')};
   font-weight: 700;
   width: fit-content;
   height: fit-content;
+  cursor: ${({ $forDiv }) => ($forDiv ? 'default' : 'pointer')};
 
   ${({ $type }) => {
     if ($type === 'Login')
@@ -49,12 +69,11 @@ const StyledButton = styled.button<{
         font-size: 20px;
         width: 100%;
       `;
-    else if ($type === 'GoBack')
+    else if ($type === 'PinkGrad')
       return css`
         padding: 12px 23px;
         border-radius: 40px;
         font-size: 18px;
-        box-shadow: 0px 0px 17.1px 0px rgba(0, 0, 0, 0.1);
       `;
     else if ($type === 'Options')
       return css`
@@ -80,11 +99,11 @@ const StyledButton = styled.button<{
         padding: 13px 20px;
         border-radius: 30px;
         background: #ffffffd8;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
         color: ${COLORS.GRAY_97};
         backdrop-filter: blur(1px);
         -webkit-backdrop-filter: blur(5px);
-        z-index: 999;
+        z-index: 20;
       `;
     else
       return css`
@@ -92,10 +111,7 @@ const StyledButton = styled.button<{
         padding: 6px 9px;
         border: 1px solid ${COLORS.GRAY_CD};
         background: #fff;
-        color: #666;
         text-align: center;
-        font-size: 11px;
-        font-weight: 700;
       `;
   }}
 `;
