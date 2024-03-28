@@ -23,7 +23,7 @@ function SideBar({ content }: SideBarProps) {
         alt="logo"
         width={128}
         height={89}
-        style={{ marginBottom: 55 }}
+        style={{ marginBottom: 55, cursor: 'pointer' }}
         onClick={() => router.push('/')}
       />
       <OptionContents content={content} />
