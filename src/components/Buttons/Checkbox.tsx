@@ -31,5 +31,6 @@ export const StyledCheckbox = styled.button`
   width: 21px;
   height: 21px;
   margin-right: 15px;
+  background-color: white;
   position: relative;
 `;
