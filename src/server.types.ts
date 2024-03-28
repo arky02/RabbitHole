@@ -17,3 +17,13 @@ export interface createSessionRes {
   };
   status: number;
 }
+
+export interface studentListRes {
+  uid: number;
+  name: string;
+  stu_no: number;
+  gender: number;
+  age: number;
+  school_id: number;
+  pin: number;
+}
