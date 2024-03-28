@@ -10,21 +10,23 @@ import { Dispatch, SetStateAction, useState } from 'react';
 interface VideoContainerProps {
   currState: string;
   isChecked: boolean;
+  onCheck: () => void;
   onClick: () => void;
 }
 
 function VideoContainer({
   currState = 'playing',
   isChecked,
+  onCheck,
   onClick,
 }: VideoContainerProps) {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <TopContainer>
-        <Checkbox onClick={onClick} isChecked={isChecked} />
-        <button>
+        <Checkbox onClick={onCheck} isChecked={isChecked} />
+        {/* <button>
           <Image src={Dots} alt="dots"></Image>
-        </button>
+        </button> */}
       </TopContainer>
       {currState !== 'playing' && (
         <StateChip
@@ -45,6 +47,11 @@ const Wrapper = styled.div`
   width: 250px;
   height: 180px;
   position: relative;
+
+  &:hover {
+    cursor: pointer;
+    background: ${COLORS.MAIN_GRAD};
+  }
 `;
 
 const TopContainer = styled.div`
