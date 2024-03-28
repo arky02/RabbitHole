@@ -71,6 +71,7 @@ function Login() {
               }}
             />
             <Input
+              isPassword
               placeholder="비밀번호"
               text={pwText}
               onChange={(e) => {
