@@ -20,6 +20,14 @@ import { GetServerSidePropsContext } from 'next';
 import { request } from '@/apis/axios';
 import toast from 'react-hot-toast';
 import useManageUserToken from '@/hooks/useManageUserToken';
+import {
+  QueryCache,
+  QueryClient,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query';
+import { getStudentInSession } from '@/apis/capsuleQuery';
+import { studentListRes } from '@/server.types';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -36,24 +44,16 @@ export const getServerSideProps = async (
       };
 };
 
-interface studentType {
-  uid: number;
-  name: string;
-  class_id: number;
-  stu_no: number;
-  gender: number;
-  age: number;
-  school_id: number;
-  pin: number;
-}
-
 function classNowOn() {
+  const queryClient = useQueryClient();
   const router = useRouter();
   const { sessionId, key: sessionKey } = router.query;
 
-  const studentList = student.students;
-
   const { userToken } = useManageUserToken();
+
+  const studentsInSession = useQuery(
+    getStudentInSession(userToken, Number(sessionId)),
+  ).data?.data.students;
 
   const requestSessionStart = async () => {
     try {
@@ -74,6 +74,30 @@ function classNowOn() {
     } catch (error) {
       toast.error(
         '수업 세션을 시작하는 도중 문제가 발생하였습니다. 관리자에게 문의하세요',
+      );
+      console.log(error);
+    }
+  };
+
+  const removeStudentFromSession = async (studentId: number) => {
+    try {
+      const res = await request.delete('remove_student_from_session', {
+        data: {
+          // delete req body
+          session_id: sessionId,
+          student_id: studentId,
+        },
+        headers: { Authorization: `Bearer ${userToken}` },
+      });
+
+      // response status 200
+      toast.success('성공적으로 학생을 세션에서 제거하였습니다.');
+      queryClient.invalidateQueries({
+        queryKey: ['sessionStudent', Number(sessionId)],
+      });
+    } catch (error) {
+      toast.error(
+        '세션에서 학생을 제거하는데 문제가 발생하였습니다. 관리자에게 문의하세요.',
       );
       console.log(error);
     }
@@ -102,23 +126,29 @@ function classNowOn() {
         </Wrapper>
         <BoldText>접속 학생</BoldText>
         <StudentListWrapper>
-          {studentList.map((student: studentType) => (
-            <Button
-              type="WhiteShadow"
-              text={student.stu_no + '  ' + student.name}
-              forDiv
-              key={student.uid}
-            >
-              <Image
-                src={Del}
-                width={16}
-                height={16}
-                alt="delete"
-                onClick={() => {}}
-                style={{ cursor: 'pointer', marginLeft: '15rem' }}
-              />
-            </Button>
-          ))}
+          {studentsInSession?.length !== 0 ? (
+            studentsInSession?.map((student: studentListRes) => (
+              <Button
+                type="WhiteShadow"
+                text={student.stu_no + '  ' + student.name}
+                forDiv
+                key={student.uid}
+              >
+                <Image
+                  src={Del}
+                  width={16}
+                  height={16}
+                  alt="delete"
+                  onClick={() => {
+                    removeStudentFromSession(student.uid);
+                  }}
+                  style={{ cursor: 'pointer', marginLeft: '15rem' }}
+                />
+              </Button>
+            ))
+          ) : (
+            <span>접속한 학생이 없습니다.</span>
+          )}
         </StudentListWrapper>
       </ContentWrapper>
     </Section>
