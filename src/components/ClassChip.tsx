@@ -7,22 +7,19 @@ import { COLORS } from '@/styles/palatte';
 import { useState } from 'react';
 import Checked from '/public/icon/checked.svg';
 import Checkbox from './Buttons/Checkbox';
+import { ClassProp } from '@/server.types';
 
-interface ClassProp {
-  school_id: number;
-  class_no: number;
-  grade: number;
-  year: number;
-  className: string;
-}
 function ClassChip({
   classInfo,
   hasCheckbox = false,
+  onClick,
 }: {
   classInfo: ClassProp;
   hasCheckbox?: boolean;
+  onClick?: () => void;
 }) {
   const [isChecked, setIsChecked] = useState(false);
+
   return (
     <ShadowWrapper2 $hasCheckbox={hasCheckbox}>
       {hasCheckbox && (
@@ -38,11 +35,13 @@ function ClassChip({
         alt="class"
       ></Image>
       <ColumnWrapper $hasCheckbox={hasCheckbox}>
-        <ClassName $hasCheckbox={hasCheckbox}>{classInfo.className}</ClassName>
+        <ClassName $hasCheckbox={hasCheckbox}>
+          {classInfo.class_name ?? ''}
+        </ClassName>
         {!hasCheckbox ? (
           <ButtonWrapper>
             <GrayText $hasCheckbox={hasCheckbox}>실행하러 가기</GrayText>
-            <button>
+            <button onClick={onClick}>
               <Image src={PlayBtn} width={50} height={50} alt="play"></Image>
             </button>
           </ButtonWrapper>
