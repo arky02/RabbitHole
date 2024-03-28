@@ -6,3 +6,14 @@ export interface ClassProp {
   class_name: string | null;
   class_id: number;
 }
+
+export interface createSessionRes {
+  data: {
+    message: string;
+    session_id: number;
+    class_id: number;
+    session_key: number;
+    teacher_id: number;
+  };
+  status: number;
+}

@@ -8,10 +8,13 @@ import { FlexColumn } from '@/styles/CommonStyles';
 import styled from 'styled-components';
 import useManageUserToken from '@/hooks/useManageUserToken';
 import { getClassInfo } from '@/apis/capsuleQuery';
-import { ClassProp } from '@/server.types';
+import { ClassProp, createSessionRes } from '@/server.types';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
+import toast from 'react-hot-toast';
+import { request } from '@/apis/axios';
+import { useRouter } from 'next/router';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -41,8 +44,27 @@ export const selectClassSideBarContent = [
 function selectClass() {
   const { userToken } = useManageUserToken();
   const classInfos = useQuery(getClassInfo(userToken)).data?.data.classes;
+  const router = useRouter();
 
-  //const handleCreateSession = () => {};
+  const handleCreateSession = async (classId: number) => {
+    try {
+      const loginRes: createSessionRes = await request.post(
+        'create_session',
+        {
+          class_id: classId,
+        },
+        { headers: { Authorization: `Bearer ${userToken}` } },
+      );
+
+      console.log(loginRes);
+      if (loginRes.status === 201) {
+        toast.success('수업 세션 생성 완료');
+        router.push(`/execute-class/class-now-on/${loginRes.data.session_key}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Section>
@@ -59,7 +81,7 @@ function selectClass() {
               key={data.class_id}
               classInfo={data}
               onClick={() => {
-                // handleCreateSession(data.class_id);
+                handleCreateSession(data.class_id);
               }}
             ></ClassChip>
           ))}

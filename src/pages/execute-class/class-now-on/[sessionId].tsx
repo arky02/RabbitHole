@@ -45,8 +45,11 @@ interface studentType {
 }
 
 function classNowOn() {
-  const studentList = student.students;
   const router = useRouter();
+  const { sessionId } = router.query;
+  console.log(sessionId);
+
+  const studentList = student.students;
   return (
     <Section>
       <Nav hasSideBar />
@@ -59,7 +62,7 @@ function classNowOn() {
         <Wrapper>
           <InviteCodeDiv>
             <InfoText>학생 참여 코드가 발행되었습니다.</InfoText>
-            <CodeText>011228</CodeText>
+            <CodeText>{sessionId}</CodeText>
           </InviteCodeDiv>
           <Button
             type="PinkGrad"
@@ -75,6 +78,7 @@ function classNowOn() {
               type="WhiteShadow"
               text={student.stu_no + '  ' + student.name}
               forDiv
+              key={student.uid}
             >
               <Image
                 src={Del}
