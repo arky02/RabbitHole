@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import Button from '../Buttons/Button';
 import { FlexColumnCenterAll } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
+import { ModalProps } from './VideoModal';
 
-interface ModalProps {
+interface Props extends ModalProps {
   isOpen: boolean;
   content: string;
   btnText: string[];
@@ -18,7 +19,7 @@ function Modal({
   btnText,
   onOkClick,
   onCancelClick,
-}: ModalProps) {
+}: Props) {
   if (typeof document === 'undefined') return;
   const portalDiv = document.querySelector('#modal');
   if (!portalDiv) return null;
@@ -31,7 +32,7 @@ function Modal({
           {btnText.map((text) => (
             <Button
               type="GrayOutline"
-              style={{ padding: '15px 20px', color: COLORS.GRAY_66 }}
+              style={{ padding: '10rem 20rem', color: COLORS.GRAY_66 }}
               onClick={onOkClick}
             >
               {text}
@@ -59,22 +60,22 @@ const StyledModalBackdrop = styled.div`
 `;
 
 const StyledModalContainer = styled(FlexColumnCenterAll)`
-  width: 500px;
+  width: 500rem;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
   background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 2pc 12px 0px rgba(0, 0, 0, 0.08);
-  padding: 55px 80px 45px;
-  gap: 25px;
+  border-radius: 20rem;
+  box-shadow: 0 2pc 12rem 0rem rgba(0, 0, 0, 0.08);
+  padding: 55rem 80rem 45rem;
+  gap: 25rem;
 `;
 
 const ContentText = styled.h5`
   color: #5b5b5b;
   text-align: center;
-  font-size: 18px;
+  font-size: 18rem;
   font-weight: 700;
 `;

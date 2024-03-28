@@ -71,7 +71,7 @@ function manageClassList() {
           <Button
             type="GrayOutline"
             text="클래스 추가하기"
-            style={{ height: 40, padding: '0 20px 0 14px', marginRight: 40 }}
+            style={{ height: 40, padding: '0 20rem 0 14rem', marginRight: 40 }}
             onClick={() => router.push('/manage-student/create-class')}
           >
             <Image src={Plus} alt="plus" style={{ marginRight: 17 }} />
@@ -79,12 +79,12 @@ function manageClassList() {
           <Button
             type="PinkGrad"
             text="선택 복제"
-            style={{ height: 40, fontSize: '16px' }}
+            style={{ height: 40, fontSize: '16rem' }}
           />
           <Button
             type="PinkGrad"
             text="선택 삭제"
-            style={{ height: 40, fontSize: '16px' }}
+            style={{ height: 40, fontSize: '16rem' }}
           />
         </ButtonWrapper>
         <ClassWrapper>
@@ -101,5 +101,5 @@ export default manageClassList;
 
 const ButtonWrapper = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 10rem;
 `;

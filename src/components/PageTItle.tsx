@@ -36,13 +36,13 @@ const Wrapper = styled(FlexColumn)<{ $margin: string }>`
 
 const TitleWrapper = styled.div`
   display: flex;
-  gap: 15px;
+  gap: 15rem;
   align-items: center;
 `;
 
 const DescText = styled.h5`
   color: #c86fff;
-  font-size: 18px;
+  font-size: 18rem;
   font-weight: 700;
-  margin-top: 15px;
+  margin-top: 15rem;
 `;

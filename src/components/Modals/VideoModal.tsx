@@ -8,21 +8,13 @@ import defaultProfile from '@/public/icon/defaultProfileImgIcon.svg';
 import { DashedSeparator } from '../HomeNoticeList';
 import X from '@/public/icon/purpleDelete.svg';
 
-interface ModalProps {
+export interface ModalProps {
   isOpen: boolean;
-  content: string;
-  btnText: string[];
   onOkClick: () => void;
   onCancelClick: () => void;
 }
 
-function VideoModal({
-  isOpen = true,
-  content,
-  btnText,
-  onOkClick,
-  onCancelClick,
-}: ModalProps) {
+function VideoModal({ isOpen = true, onOkClick, onCancelClick }: ModalProps) {
   if (typeof document === 'undefined') return;
   const portalDiv = document.querySelector('#modal');
   if (!portalDiv) return null;
@@ -51,7 +43,7 @@ function VideoModal({
                 style={{
                   fontSize: 14,
                   color: COLORS.GRAY_66,
-                  padding: '9px 20px',
+                  padding: '9rem 20rem',
                 }}
               />
               <button onClick={onCancelClick}>
@@ -63,7 +55,11 @@ function VideoModal({
           <Button
             type="GrayOutline"
             text="학생 현재 화면"
-            style={{ fontSize: 14, color: COLORS.GRAY_66, padding: '9px 20px' }}
+            style={{
+              fontSize: 14,
+              color: COLORS.GRAY_66,
+              padding: '9rem 20rem',
+            }}
           ></Button>
         </StyledModalContainer>
       </div>,
@@ -87,24 +83,24 @@ const StyledModalBackdrop = styled.div`
 `;
 
 const StyledModalContainer = styled(FlexColumnCenterAll)`
-  width: 859px;
-  height: 560px;
+  width: 859rem;
+  height: 560rem;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
   background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 2pc 12px 0px rgba(0, 0, 0, 0.08);
-  padding: 55px 80px 45px;
-  gap: 25px;
+  border-radius: 20rem;
+  box-shadow: 0 2pc 12rem 0rem rgba(0, 0, 0, 0.08);
+  padding: 55rem 80rem 45rem;
+  gap: 25rem;
 `;
 
 const ContentText = styled.h5`
   color: #5b5b5b;
   text-align: center;
-  font-size: 18px;
+  font-size: 18rem;
   font-weight: 700;
 `;
 
@@ -118,19 +114,19 @@ const TextWrapper = styled(FlexColumn)``;
 
 const Name = styled.h3`
   color: black;
-  font-size: 18px;
+  font-size: 18rem;
   font-weight: 700;
 `;
 
 const Desc = styled.h5`
   color: ${COLORS.GRAY_94};
-  font-size: 16px;
+  font-size: 16rem;
   font-weight: 700;
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 20rem;
   align-items: center;
 `;
 

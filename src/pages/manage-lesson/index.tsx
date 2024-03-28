@@ -28,11 +28,11 @@ function manageLesson() {
   return (
     <Section>
       <Nav />
-      <PageTitle title="수업안 관리" margin="0 0 30px" />
+      <PageTitle title="수업안 관리" margin="0 0 30rem" />
       <ShortcutMenuChip
         title="수업안 제작"
         desc="저장된 수업을 확인하고 새로운 수업을 구성할 수 있습니다."
-        href="/"
+        href="/manage-lesson"
       >
         <Image src={BookWithPen} alt="book"></Image>
       </ShortcutMenuChip>
@@ -43,6 +43,6 @@ function manageLesson() {
 export default manageLesson;
 
 const Section = styled(FlexColumn)`
-  margin-top: 205px;
-  padding: 0 0 0 170px;
+  margin-top: 205rem;
+  padding: 0 0 0 170rem;
 `;

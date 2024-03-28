@@ -117,11 +117,11 @@ function PopupMenu({ popupRef, btnRef, isOpen, setIsOpen }: PopupMenuProps) {
               }}
               ref={btnRef}
             >
-              <span style={{ fontSize: '14px' }}>창 닫기</span>
+              <span style={{ fontSize: '14rem' }}>창 닫기</span>
               <Image
                 src={CloseDropdownTriBtn}
                 alt="close dropdown button"
-                style={{ marginLeft: '7px' }}
+                style={{ marginLeft: '7rem' }}
               ></Image>
             </SmallHoverButton>
           </CloseBtnWrapper>
@@ -132,13 +132,13 @@ function PopupMenu({ popupRef, btnRef, isOpen, setIsOpen }: PopupMenuProps) {
 }
 
 const PopupMenuWrapper = styled.div<{ $isOpen: boolean }>`
-  padding: 33px 65px 33px 40px;
-  height: 410px;
-  border-radius: 20px;
+  padding: 33rem 65rem 33rem 40rem;
+  height: 410rem;
+  border-radius: 20rem;
   background: #fff;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0rem 0rem 20rem 0rem rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 45px;
+  top: 45rem;
   right: 0;
   z-index: 10;
   /* animation: ${({ $isOpen }) =>
@@ -153,28 +153,28 @@ const PopupMenuWrapper = styled.div<{ $isOpen: boolean }>`
 
 const ProfileInfoWrapper = styled.div`
   display: flex;
-  gap: 25px;
-  margin-bottom: 40px;
+  gap: 25rem;
+  margin-bottom: 40rem;
 `;
 
 const Name = styled.h1`
-  font-size: 18px;
+  font-size: 18rem;
   font-weight: 600;
-  margin-bottom: 7px;
+  margin-bottom: 7rem;
 `;
 
 const Description = styled.h5`
   color: ${COLORS.GRAY_97};
-  font-size: 12px;
+  font-size: 12rem;
   font-weight: 700;
 `;
 
 const OptionsMenuWrapper = styled(FlexColumn)`
-  gap: 50px;
+  gap: 50rem;
 `;
 
 const OptionWrapper = styled(FlexColumn)`
-  gap: 7px;
+  gap: 7rem;
   align-items: flex-start;
 `;
 
@@ -185,8 +185,8 @@ const Option = styled.button`
 
 const CloseBtnWrapper = styled.div`
   position: absolute;
-  right: 20px;
-  bottom: 16px;
+  right: 20rem;
+  bottom: 16rem;
 `;
 
 function MenuDropdownBtn({ userName, btnRef, setIsOpen }: DropdownBtnProps) {
@@ -196,7 +196,7 @@ function MenuDropdownBtn({ userName, btnRef, setIsOpen }: DropdownBtnProps) {
       <Image
         src={DefaultProfile}
         alt="user profile"
-        style={{ margin: '0 10px 0 6px' }}
+        style={{ margin: '0 10rem 0 6rem' }}
         width={30}
         height={30}
       ></Image>
@@ -213,13 +213,13 @@ function MenuDropdownBtn({ userName, btnRef, setIsOpen }: DropdownBtnProps) {
 }
 
 const DropdownWrapper = styled.div`
-  padding: 11px 19px;
+  padding: 11rem 19rem;
   display: flex;
   align-items: center;
-  height: 46px;
+  height: 46rem;
   flex-shrink: 0;
-  border-radius: 30px;
+  border-radius: 30rem;
   font-weight: 500;
   background: #fff;
-  box-shadow: 0px 0px 13.4px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0rem 0rem 13.4rem 1rem rgba(0, 0, 0, 0.1);
 `;

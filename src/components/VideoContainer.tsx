@@ -42,10 +42,10 @@ function VideoContainer({
 export default VideoContainer;
 
 const Wrapper = styled.div`
-  border: 1px solid ${COLORS.GRAY_CD};
-  border-radius: 20px;
-  width: 250px;
-  height: 180px;
+  border: 1rem solid ${COLORS.GRAY_CD};
+  border-radius: 20rem;
+  width: 250rem;
+  height: 180rem;
   position: relative;
 
   &:hover {
@@ -57,7 +57,7 @@ const Wrapper = styled.div`
 const TopContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 15rem;
 `;
 
 const StateChip = styled(Button)`

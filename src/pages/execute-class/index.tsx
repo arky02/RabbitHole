@@ -28,7 +28,7 @@ function executeClass() {
   return (
     <Section>
       <Nav />
-      <PageTitle title="수업 실행" margin="0 0 30px" />
+      <PageTitle title="수업 실행" margin="0 0 30rem" />
       <ShortcutMenuChip
         title="수업 실행하기"
         desc="생성된 클래스를 통해 실제 수업을 진행합니다."
@@ -43,6 +43,6 @@ function executeClass() {
 export default executeClass;
 
 const Section = styled(FlexColumn)`
-  margin-top: 205px;
-  padding: 0 0 0 170px;
+  margin-top: 205rem;
+  padding: 0 0 0 170rem;
 `;

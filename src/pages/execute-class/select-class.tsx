@@ -34,10 +34,7 @@ export const getServerSideProps = async (
 export const selectClassSideBarContent = [
   {
     title: '수업 실행하기',
-    options: [
-      ['클래스 선택', '/execute-class/select-class'],
-      ['실행중인 수업', '/execute-class/class-now-on'],
-    ],
+    options: [['클래스 선택', '/execute-class/select-class']],
   },
 ];
 
@@ -48,7 +45,7 @@ function selectClass() {
 
   const handleCreateSession = async (classId: number) => {
     try {
-      const loginRes: createSessionRes = await request.post(
+      const res: createSessionRes = await request.post(
         'create_session',
         {
           class_id: classId,
@@ -56,10 +53,11 @@ function selectClass() {
         { headers: { Authorization: `Bearer ${userToken}` } },
       );
 
-      console.log(loginRes);
-      if (loginRes.status === 201) {
+      if (res.status === 201) {
         toast.success('수업 세션 생성 완료');
-        router.push(`/execute-class/class-now-on/${loginRes.data.session_key}`);
+        router.push(
+          `/execute-class/class-now-on/${res.data.session_id}?key=${res.data.session_key}`,
+        );
       }
     } catch (error) {
       console.log(error);
@@ -98,12 +96,12 @@ export const Section = styled.div`
 `;
 
 export const ContentWrapper = styled(FlexColumn)`
-  margin: 220px 0px 0px 268px;
-  gap: 30px;
+  margin: 220rem 0rem 0rem 268rem;
+  gap: 30rem;
 `;
 
 export const ClassWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 30rem;
 `;

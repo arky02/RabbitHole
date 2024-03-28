@@ -22,12 +22,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <Toaster
           containerStyle={{
-            fontSize: '15px',
+            fontSize: '15rem',
             fontWeight: '600',
           }}
           toastOptions={{
             style: {
-              borderRadius: '999px',
+              borderRadius: '999rem',
             },
             // icon: '🐰',
           }}

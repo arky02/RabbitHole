@@ -31,7 +31,7 @@ function ClassInfoSection() {
                 <Image
                   src={school}
                   alt="school"
-                  style={{ marginRight: '6px' }}
+                  style={{ marginRight: '6rem' }}
                 />
                 OO초등학교
               </SchoolText>
@@ -46,7 +46,7 @@ function ClassInfoSection() {
             <Button type="GrayOutline">
               <span
                 style={{
-                  fontSize: '11px',
+                  fontSize: '11rem',
                   fontWeight: 700,
                   color: COLORS.GRAY_66,
                 }}
@@ -64,12 +64,12 @@ function ClassInfoSection() {
           <ArrowButton
             direction="right"
             onClick={() => {}}
-            style={{ top: '70px', right: '-45px' }}
+            style={{ top: '70rem', right: '-45rem' }}
           ></ArrowButton>
           <ArrowButton
             direction="left"
             onClick={() => {}}
-            style={{ top: '70px', left: '-45px' }}
+            style={{ top: '70rem', left: '-45rem' }}
           ></ArrowButton>
         </MyClassContainer>
       </LeftContainer>
@@ -94,91 +94,91 @@ export default ClassInfoSection;
 const ShadowBox = styled.div`
   display: flex;
   justify-content: space-evenly;
-  border-radius: 20px;
+  border-radius: 20rem;
   background: #fff;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0rem 0rem 10rem 0rem rgba(0, 0, 0, 0.12);
   width: 100%;
   height: fit-content;
 `;
 const LeftContainer = styled(FlexColumn)`
-  padding: 35px 72px 53px 60px;
+  padding: 35rem 72rem 53rem 60rem;
   justify-content: center;
-  gap: 38px;
+  gap: 38rem;
 `;
 
 const RightContainer = styled(FlexColumn)`
-  padding: 35px 40px 0 15px;
+  padding: 35rem 40rem 0 15rem;
   height: 100%;
-  gap: 16px;
+  gap: 16rem;
 `;
 
 const MyClassContainer = styled(FlexColumn)`
-  gap: 21px;
+  gap: 21rem;
   position: relative;
 `;
 
 const ProfileContainer = styled.div`
   display: flex;
-  gap: 50px;
+  gap: 50rem;
 `;
 
 const ProfileWrapper = styled(FlexColumn)`
-  gap: 12px;
-  margin-top: 20px;
+  gap: 12rem;
+  margin-top: 20rem;
 `;
 
 const NameAndSchoolWrapper = styled.div`
   display: flex;
-  gap: 25px;
+  gap: 25rem;
   align-items: center;
 `;
 
 const NameText = styled.h1`
   color: black;
-  font-size: 36px;
+  font-size: 36rem;
   font-weight: 700;
 `;
 
 const SchoolText = styled.span`
   color: ${COLORS.GRAY_97};
-  font-size: 20px;
+  font-size: 20rem;
   font-weight: 700;
 `;
 
 const MailText = styled.h4`
   color: ${COLORS.GRAY_97};
-  font-size: 16px;
+  font-size: 16rem;
   font-weight: 600;
 `;
 
 const TitleText = styled.h1`
   color: black;
-  font-size: 28px;
+  font-size: 28rem;
   font-weight: 700;
 `;
 
 const TextContainer = styled.div`
   display: flex;
-  gap: 18px;
+  gap: 18rem;
   align-items: center;
 `;
 
 const ClassListContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 10rem;
 `;
 const ClassContainer = styled(FlexColumnCenterAll)`
-  gap: 10px;
+  gap: 10rem;
 `;
 
 const CurrTimeIndicator = styled(ShadowDiv)`
-  border-radius: 30px;
+  border-radius: 30rem;
   background: #fff;
   color: #666;
   text-align: center;
-  font-size: 11px;
+  font-size: 11rem;
   font-weight: 700;
-  padding: 8px 12px;
+  padding: 8rem 12rem;
 `;
 
 const TitleContainer = styled.div`
@@ -189,8 +189,8 @@ const TitleContainer = styled.div`
 `;
 
 const RowSeparator = styled.div`
-  border-left: 2px solid ${COLORS.GRAY_E5};
-  height: 400px;
-  margin-top: 25px;
-  margin-left: 15px;
+  border-left: 2rem solid ${COLORS.GRAY_E5};
+  height: 400rem;
+  margin-top: 25rem;
+  margin-left: 15rem;
 `;

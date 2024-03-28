@@ -1,13 +1,13 @@
-import { COLORS } from '@/styles/palatte'
-import { MutableRefObject, ReactNode } from 'react'
-import styled from 'styled-components'
+import { COLORS } from '@/styles/palatte';
+import { MutableRefObject, ReactNode } from 'react';
+import styled from 'styled-components';
 
 interface ButtonProps {
-  children: ReactNode
-  onClick?: () => void
-  ref?: MutableRefObject<HTMLButtonElement | null> | null
-  style?: {}
-  useForDiv?: boolean
+  children: ReactNode;
+  onClick?: () => void;
+  ref?: MutableRefObject<HTMLButtonElement | null> | null;
+  style?: {};
+  useForDiv?: boolean;
 }
 function SmallHoverButton({
   children,
@@ -22,9 +22,9 @@ function SmallHoverButton({
     <StyledButton onClick={onClick} ref={ref} style={style}>
       {children}
     </StyledButton>
-  )
+  );
 }
-export default SmallHoverButton
+export default SmallHoverButton;
 
 const StyledButton = styled.button`
   color: ${COLORS.GRAY_97};
@@ -32,14 +32,14 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   height: fit-content;
-  border-radius: 5px;
-  padding: 5.5px 15px 5.5px 10px;
+  border-radius: 5rem;
+  padding: 5.5rem 15rem 5.5rem 10rem;
   &:hover {
     background: ${COLORS.GRAY_D9};
     color: #666;
     transition: 0.5s;
   }
-`
+`;
 
 const StyledButtonDiv = styled.div`
   color: ${COLORS.GRAY_97};
@@ -47,11 +47,11 @@ const StyledButtonDiv = styled.div`
   display: flex;
   align-items: center;
   height: fit-content;
-  border-radius: 5px;
-  padding: 5.5px 15px 5.5px 10px;
+  border-radius: 5rem;
+  padding: 5.5rem 15rem 5.5rem 10rem;
   &:hover {
     background: ${COLORS.GRAY_D9};
     color: #666;
     transition: 0.3s;
   }
-`
+`;

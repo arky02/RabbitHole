@@ -64,31 +64,31 @@ const StyledButton = styled.button<{
   ${({ $type }) => {
     if ($type === 'Login')
       return css`
-        padding: 10px 15px;
-        border-radius: 30px;
-        font-size: 20px;
+        padding: 10rem 15rem;
+        border-radius: 30rem;
+        font-size: 20rem;
         width: 100%;
       `;
     else if ($type === 'PinkGrad')
       return css`
-        padding: 12px 23px;
-        border-radius: 40px;
-        font-size: 18px;
+        padding: 12rem 23rem;
+        border-radius: 40rem;
+        font-size: 18rem;
       `;
     else if ($type === 'Options')
       return css`
-        padding: 12px 23px;
-        border-radius: 40px;
-        font-size: 18px;
+        padding: 12rem 23rem;
+        border-radius: 40rem;
+        font-size: 18rem;
         color: ${COLORS.GRAY_97};
-        border: 1px solid ${COLORS.GRAY_CD};
+        border: 1rem solid ${COLORS.GRAY_CD};
         background: #fff;
         &:hover {
           background: ${COLORS.MAIN_GRAD};
           color: white;
           transition: 0.5s ease;
-          border: 1px solid white;
-          box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+          border: 1rem solid white;
+          box-shadow: 0rem 0rem 30rem 0rem rgba(0, 0, 0, 0.1);
         }
         &:hover img .option-icon {
           fill: white !important;
@@ -96,20 +96,20 @@ const StyledButton = styled.button<{
       `;
     else if ($type === 'WhiteShadow')
       return css`
-        padding: 13px 20px;
-        border-radius: 30px;
+        padding: 13rem 20rem;
+        border-radius: 30rem;
         background: #ffffffd8;
-        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0rem 0rem 12rem 0rem rgba(0, 0, 0, 0.1);
         color: ${COLORS.GRAY_97};
-        backdrop-filter: blur(1px);
-        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(1rem);
+        -webkit-backdrop-filter: blur(5rem);
         z-index: 20;
       `;
     else
       return css`
-        border-radius: 30px;
-        padding: 6px 9px;
-        border: 1px solid ${COLORS.GRAY_CD};
+        border-radius: 30rem;
+        padding: 6rem 9rem;
+        border: 1rem solid ${COLORS.GRAY_CD};
         background: #fff;
         text-align: center;
       `;

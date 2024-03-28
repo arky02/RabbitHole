@@ -84,7 +84,9 @@ function createClass() {
               <Button
                 type="PinkGrad"
                 text="일괄 삭제"
-                style={{ boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.10)' }}
+                style={{
+                  boxShadow: '0rem 0rem 20rem 0rem rgba(0, 0, 0, 0.10)',
+                }}
               ></Button>
             </ButtonWrapper>
           </div>
@@ -103,13 +105,13 @@ const Section2 = styled(Section)`
 
 const ContentWrapper2 = styled(ContentWrapper)`
   width: 100%;
-  padding-right: 200px;
+  padding-right: 200rem;
 `;
 
 const ShadowWrapper = styled(ShadowDiv)`
-  padding: 35px 50px 25px 45px;
-  border-radius: 30px;
-  gap: 30px;
+  padding: 35rem 50rem 25rem 45rem;
+  border-radius: 30rem;
+  gap: 30rem;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -117,17 +119,17 @@ const ShadowWrapper = styled(ShadowDiv)`
 
 const StyledText = styled.h5`
   color: ${COLORS.GRAY_66};
-  font-size: 18px;
+  font-size: 18rem;
   font-weight: 700;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
-  gap: 23px;
+  gap: 23rem;
 `;
 
 const InnerWrapper2 = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 15rem;
 `;

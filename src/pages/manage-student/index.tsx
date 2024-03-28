@@ -30,7 +30,7 @@ function manageStudent() {
   return (
     <Section>
       <Nav />
-      <PageTitle title="학생 관리" margin="0 0 30px" />
+      <PageTitle title="학생 관리" margin="0 0 30rem" />
       <MenuContainer>
         <ShortcutMenuChip
           title="클래스 관리"
@@ -54,11 +54,11 @@ function manageStudent() {
 export default manageStudent;
 
 const Section = styled(FlexColumn)`
-  margin-top: 205px;
-  padding: 0 0 0 170px;
+  margin-top: 205rem;
+  padding: 0 0 0 170rem;
 `;
 
 const MenuContainer = styled.div`
   display: flex;
-  gap: 25px;
+  gap: 25rem;
 `;

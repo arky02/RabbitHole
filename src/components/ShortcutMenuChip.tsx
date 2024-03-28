@@ -27,29 +27,29 @@ export default ShortcutMenuChip;
 
 export const ShadowWrapper = styled(Link)`
   display: flex;
-  border-radius: 40px;
+  border-radius: 40rem;
   background: white;
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
-  padding: 50px 25px 0px 37px;
-  width: 300px;
-  height: 175px;
-  gap: 30px;
+  box-shadow: 0rem 4rem 10rem 0rem rgba(0, 0, 0, 0.1);
+  padding: 50rem 25rem 0rem 37rem;
+  width: 300rem;
+  height: 175rem;
+  gap: 30rem;
 `;
 
 const TextWrapper = styled(FlexColumn)`
-  gap: 12px;
-  margin-top: -15px;
+  gap: 12rem;
+  margin-top: -15rem;
 `;
 
 const Title = styled.h1`
   color: black;
-  font-size: 24px;
+  font-size: 24rem;
   font-weight: 700;
 `;
 
 const Description = styled.h5`
   color: ${COLORS.GRAY_94};
-  font-size: 14px;
+  font-size: 14rem;
   font-weight: 600;
   line-height: 150%;
 `;

@@ -1,54 +1,54 @@
-import styled from 'styled-components'
-import Calendar from 'react-calendar'
-import { useState } from 'react'
+import styled from 'styled-components';
+import Calendar from 'react-calendar';
+import { useState } from 'react';
 
-type ValuePiece = Date | null
+type ValuePiece = Date | null;
 
-type Value = ValuePiece | [ValuePiece, ValuePiece]
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 function CalendarSection() {
-  const [value, onChange] = useState<Value>(new Date())
+  const [value, onChange] = useState<Value>(new Date());
   return (
     <Wrapper>
       <Calendar onChange={onChange} value={value} locale="kr-KR" />
     </Wrapper>
-  )
+  );
 }
 
-export default CalendarSection
+export default CalendarSection;
 
 const Wrapper = styled.div`
-  width: 600px;
+  width: 600rem;
   height: fit-content;
   max-width: 100%;
   font-weight: 600;
   background: #ffff;
-  border: 1px solid #eeeeee;
+  border: 1rem solid #eeeeee;
   line-height: 1.125em;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #f4f4f4;
+  border-radius: 10rem;
+  box-shadow: 0rem 0rem 10rem #f4f4f4;
   text-align: center;
   display: flex;
   align-items: center;
-  padding: 0px 0 20px 0;
+  padding: 0rem 0 20rem 0;
 
   .react-calendar__navigation__label__labelText {
     font-weight: 700;
-    font-size: 25px;
+    font-size: 25rem;
   }
 
   .react-calendar {
-    margin: 10px;
+    margin: 10rem;
   }
 
   .react-calendar__tile {
-    margin: 10px 10px 10px 0;
+    margin: 10rem 10rem 10rem 0;
   }
 
   .react-calendar__navigation {
     font-weight: 700;
-    margin-bottom: 40px;
-    margin-top: 20px;
+    margin-bottom: 40rem;
+    margin-top: 20rem;
   }
 
   .react-calendar__tile--now {
@@ -70,4 +70,4 @@ const Wrapper = styled.div`
   .react-calendar__tile--active:enabled:focus {
     background: #7fd8d9;
   }
-`
+`;

@@ -53,22 +53,22 @@ const InputWrapper = styled.div`
 
 const InputStyleWrapper = styled.input`
   display: flex;
-  width: 350px;
-  height: 50px;
-  padding: 0px 35px;
+  width: 350rem;
+  height: 50rem;
+  padding: 0rem 35rem;
   align-items: center;
-  gap: 10px;
+  gap: 10rem;
   flex-shrink: 0;
-  border-radius: 20px;
+  border-radius: 20rem;
   background: #f7f7f7;
   border: none;
-  font-size: 16px;
+  font-size: 16rem;
 `;
 
 const StyledEyeButton = styled.button`
   position: absolute;
-  right: 15px;
-  top: 13px;
+  right: 15rem;
+  top: 13rem;
   border: none;
   background: none;
 `;

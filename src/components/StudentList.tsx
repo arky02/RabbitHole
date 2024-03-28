@@ -18,13 +18,13 @@ const student = [
 ];
 function StudentList() {
   const [checkedList, setCheckedList] = useState<number[]>([]);
-  console.log(checkedList);
+
   return (
     <Wrapper>
       <Text>참여 학생 목록</Text>
       <ListWrapper>
         {student.map((el, idx) => (
-          <>
+          <div key={idx}>
             <ListDiv>
               <Checkbox
                 isChecked={checkedList.includes(idx)}
@@ -39,7 +39,7 @@ function StudentList() {
               <Name>{el[0]}</Name>
               <Desc>{el[1] + '학년 ' + el[2] + '반'}</Desc>
             </ListDiv>
-          </>
+          </div>
         ))}
       </ListWrapper>
     </Wrapper>
@@ -49,40 +49,40 @@ function StudentList() {
 export default StudentList;
 
 const Wrapper = styled(Border20GrayD9Div)`
-  padding: 18px 15px 25px 42px;
-  height: 220px;
+  padding: 18rem 15rem 25rem 42rem;
+  height: 220rem;
   width: 100%;
 `;
 
 const Text = styled.h5`
   color: ${COLORS.GRAY_66};
-  font-size: 14px;
+  font-size: 14rem;
   font-weight: 700;
-  margin-bottom: 7px;
+  margin-bottom: 7rem;
 `;
 
 const ListWrapper = styled(FlexColumn)`
   overflow-y: scroll;
-  height: 170px;
+  height: 170rem;
 `;
 
 const ListDiv = styled.div`
   display: flex;
   align-items: center;
-  gap: 19px;
-  padding: 16px 0;
-  border-bottom: 1px solid #e0e0e0;
+  gap: 19rem;
+  padding: 16rem 0;
+  border-bottom: 1rem solid #e0e0e0;
 `;
 
 const Name = styled.h3`
   color: ${COLORS.GRAY_66};
   text-align: center;
-  font-size: 14px;
+  font-size: 14rem;
   font-weight: 700;
 `;
 
 const Desc = styled.h5`
   color: #b0b0b0;
-  font-size: 10px;
+  font-size: 10rem;
   font-weight: 700;
 `;

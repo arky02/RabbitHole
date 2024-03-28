@@ -43,11 +43,12 @@ function Login() {
         password: pwText,
       });
 
-      console.log(loginRes.data.token);
+      // response status 200
       saveToken(loginRes.data.token);
       toast.success('로그인 성공');
       router.push('/');
     } catch (error) {
+      toast.error('로그인 실패');
       setErrorText('존재하지 않는 아이디이거나 비밀번호가 잘못되었습니다.');
     }
   };
@@ -98,20 +99,20 @@ const PageFlexCenterWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 60rem;
 `;
 
 const ShadowWrapper = styled.div`
   display: flex;
   width: fit-content;
-  gap: 100px;
-  padding: 0 90px;
+  gap: 100rem;
+  padding: 0 90rem;
   align-items: center;
   justify-content: center;
-  height: 437px;
-  border-radius: 40px;
+  height: 437rem;
+  border-radius: 40rem;
   background: #fff;
-  box-shadow: 0px 4px 25px 7px rgba(0, 0, 0, 0.08);
+  box-shadow: 0rem 4rem 25rem 7rem rgba(0, 0, 0, 0.08);
 `;
 
 const FlexColumnWrapper = styled.div`
@@ -124,13 +125,13 @@ const FlexColumnWrapper = styled.div`
 const TextWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 43px;
+  gap: 15rem;
+  margin-bottom: 43rem;
 `;
 
 const LogoText = styled.h1`
   text-align: center;
-  font-size: 52px;
+  font-size: 52rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -141,28 +142,28 @@ const LogoText = styled.h1`
 `;
 
 const DescriptionText = styled.h3`
-  font-size: 24px;
+  font-size: 24rem;
   font-weight: 700;
-  margin-top: 10px;
+  margin-top: 10rem;
 `;
 
 const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 30px;
+  gap: 12rem;
+  margin-bottom: 30rem;
 `;
 
 const GrayText = styled.h5`
   color: ${COLORS.GRAY_94};
   text-align: center;
-  font-size: 14px;
-  margin-top: 20px;
+  font-size: 14rem;
+  margin-top: 20rem;
   font-weight: 500;
 `;
 
 const ErrorText = styled.h5`
   color: ${COLORS.RED};
-  font-size: 14px;
-  margin-left: 15px;
+  font-size: 14rem;
+  margin-left: 15rem;
 `;

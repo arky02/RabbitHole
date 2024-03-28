@@ -50,7 +50,7 @@ function BottomMenuContainer({
       <Link href={'/'}>
         <Image src={LogoImg} width={128} height={85} alt="logo" />
       </Link>
-      <PageTitle title="교사 홈" margin="0 0 0 70px" />
+      <PageTitle title="교사 홈" margin="0 0 0 70rem" />
       <OptionButtons isHomePage />
     </MenuOptionsWrapper>
   ) : (
@@ -83,15 +83,15 @@ function OptionButtons({
           type="PinkGrad"
           text={'이전 페이지'}
           style={{
-            marginRight: '30px',
-            boxShadow: '0px 0px 17.1px 0px rgba(0, 0, 0, 0.1)',
+            marginRight: '30rem',
+            boxShadow: '0rem 0rem 17.1rem 0rem rgba(0, 0, 0, 0.1)',
           }}
           onClick={() => router.back()}
         >
           <Image
             src={Backspace}
             alt="돌아가기"
-            style={{ marginRight: '15px' }}
+            style={{ marginRight: '15rem' }}
           ></Image>
         </Button>
       )}
@@ -105,7 +105,7 @@ function OptionButtons({
         <Image
           src={isBtnHovered[0] ? WhiteBook : Book}
           alt="book"
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: '10rem' }}
         />
       </Button>
       <Button
@@ -118,7 +118,7 @@ function OptionButtons({
         <Image
           src={isBtnHovered[1] ? WhiteBookWithPen : BookWithPen}
           alt="book"
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: '10rem' }}
         />
       </Button>
       <Button
@@ -130,7 +130,7 @@ function OptionButtons({
         <Image
           src={isBtnHovered[2] ? WhiteNewspaper : Newspaper}
           alt="newspaper"
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: '10rem' }}
         />
       </Button>
       <Button
@@ -143,7 +143,7 @@ function OptionButtons({
         <Image
           src={isBtnHovered[3] ? WhitePerson : Person}
           alt="profile"
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: '10rem' }}
         />
       </Button>
       <Button
@@ -155,7 +155,7 @@ function OptionButtons({
         <Image
           src={isBtnHovered[4] ? WhiteSetting : Setting}
           alt="setting"
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: '10rem' }}
         />
       </Button>
     </ButtonWrapper>
@@ -168,7 +168,12 @@ function HomeBtn({ hasSideBar = false }: { hasSideBar?: boolean }) {
       <Image
         src={HomeBtnImg}
         alt="home"
-        style={{ position: 'absolute', right: 35, top: hasSideBar ? 0 : 35 }}
+        style={{
+          position: 'absolute',
+          right: 35,
+          top: hasSideBar ? 0 : 35,
+          cursor: 'pointer',
+        }}
       ></Image>
     </Link>
   );
@@ -176,17 +181,17 @@ function HomeBtn({ hasSideBar = false }: { hasSideBar?: boolean }) {
 
 const ColumnWrapper = styled.div<{ $hasSideBar: boolean }>`
   width: 100%;
-  height: 165px;
+  height: 165rem;
   display: flex;
   flex-direction: column;
   box-shadow: ${({ $hasSideBar }) =>
-    $hasSideBar ? '0px' : '0px 1px 10px 0px rgba(0, 0, 0, 0.1)'};
-  margin-left: ${({ $hasSideBar }) => ($hasSideBar ? '5px' : 0)};
+    $hasSideBar ? '0rem' : '0rem 1rem 10rem 0rem rgba(0, 0, 0, 0.1)'};
+  margin-left: ${({ $hasSideBar }) => ($hasSideBar ? '5rem' : 0)};
   position: fixed;
   inset: 0;
   background: #ffffffea;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(5rem);
   z-index: 10;
   justify-content: ${({ $hasSideBar }) =>
     $hasSideBar ? 'space-between' : 'flex-start'};
@@ -196,29 +201,29 @@ const TopWrapper = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-top: 15px;
-  margin-right: 24px;
+  margin-top: 15rem;
+  margin-right: 24rem;
 `;
 
 const MenuOptionsWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-start;
-  padding: 0 32px;
+  padding: 0 32rem;
   align-items: flex-end;
   position: relative;
 `;
 
 const ButtonWrapper = styled.div<{ $hasSideBar: boolean }>`
   display: flex;
-  gap: 14px;
+  gap: 14rem;
   align-items: flex-end;
-  margin-left: ${({ $hasSideBar }) => ($hasSideBar ? '210px' : '70px')};
+  margin-left: ${({ $hasSideBar }) => ($hasSideBar ? '210rem' : '70rem')};
 `;
 
 export const TitleText = styled.h1`
   color: black;
-  font-size: 40px;
+  font-size: 40rem;
   font-weight: 700;
   white-space: nowrap;
 `;
@@ -226,6 +231,6 @@ export const TitleText = styled.h1`
 const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 11px;
-  margin-left: 70px;
+  gap: 11rem;
+  margin-left: 70rem;
 `;

@@ -46,10 +46,10 @@ function GoToRecentBtn() {
     <Button
       type="WhiteShadow"
       text="최근 사용 페이지 바로가기"
-      style={{ position: 'fixed', top: '186px' }}
+      style={{ position: 'fixed', top: '186rem' }}
       onClick={() => router.back()}
     >
-      <Image src={Backspace} alt="back" style={{ marginLeft: '13px' }}></Image>
+      <Image src={Backspace} alt="back" style={{ marginLeft: '13rem' }}></Image>
     </Button>
   );
 }
@@ -72,8 +72,8 @@ function OtherInfoSection() {
   );
 }
 const Section = styled.div`
-  margin: 50px;
-  margin-top: 255px;
+  margin: 50rem;
+  margin-top: 255rem;
 `;
 
 const BottomSection = styled.div`
@@ -87,20 +87,20 @@ const ColumnWrapper = styled(FlexColumn)`
 `;
 
 const ColumnSeparator = styled.div`
-  border-bottom: 2px solid ${COLORS.GRAY_E5};
-  margin-top: 19px;
-  margin-bottom: 25px;
+  border-bottom: 2rem solid ${COLORS.GRAY_E5};
+  margin-top: 19rem;
+  margin-bottom: 25rem;
 `;
 const RowSeparator = styled.div`
-  border-left: 1px solid ${COLORS.GRAY_E5};
-  margin: 0 40px 0 49px;
-  height: 450px;
+  border-left: 1rem solid ${COLORS.GRAY_E5};
+  margin: 0 40rem 0 49rem;
+  height: 450rem;
 `;
 
 const MainText = styled.h1`
   color: #161616;
-  font-size: 32px;
-  margin-bottom: 25px;
+  font-size: 32rem;
+  margin-bottom: 25rem;
   font-weight: 700;
 `;
 

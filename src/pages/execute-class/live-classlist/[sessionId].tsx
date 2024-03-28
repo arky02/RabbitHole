@@ -19,6 +19,8 @@ import VideoModal from '@/components/Modals/VideoModal';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
+import { useRouter } from 'next/router';
+import Modal from '@/components/Modals/Modal';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -68,17 +70,29 @@ function LiveClassListSection() {
 export default LiveClassListSection;
 
 function VideoListContainer() {
+  const router = useRouter();
+  const { sessionId, key: sessionKey } = router.query;
+
   const [checkedVideoList, setCheckedVideoList] = useState<string[]>([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
+
   return (
     <>
       <ButtonContainer>
-        <Button type="GrayOutline">
+        <Button type="GrayOutline" onClick={() => setIsCodeModalOpen(true)}>
           <GrayText>참여코드 불러오기</GrayText>
         </Button>
         <Button type="GrayOutline">
           <GrayText>단어게임 성적</GrayText>
         </Button>
+        <Modal
+          isOpen={isCodeModalOpen}
+          onCancelClick={() => setIsCodeModalOpen(false)}
+          onOkClick={() => setIsCodeModalOpen(false)}
+          content={`수업 참여 코드는 ${sessionKey} 입니다.`}
+          btnText={['확인']}
+        ></Modal>
       </ButtonContainer>
       <VideoListWrapper>
         <ButtonHeader>
@@ -112,8 +126,9 @@ function VideoListContainer() {
           </Button>
         </ButtonHeader>
         <VideoWrapper>
-          {videoIdList.map((videoEl) => (
+          {videoIdList.map((videoEl, idx) => (
             <VideoContainer
+              key={idx}
               currState="paused"
               isChecked={checkedVideoList.includes(videoEl)}
               onCheck={() =>
@@ -123,131 +138,140 @@ function VideoListContainer() {
                     : [...prev, videoEl],
                 )
               }
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => setIsVideoModalOpen(true)}
             />
           ))}
         </VideoWrapper>
       </VideoListWrapper>
       <VideoModal
-        isOpen={isModalOpen}
-        content="dkslfdjsf"
-        btnText={['dfsdfsd']}
-        onOkClick={() => setIsModalOpen(false)}
-        onCancelClick={() => setIsModalOpen(false)}
+        isOpen={isVideoModalOpen}
+        onOkClick={() => setIsVideoModalOpen(false)}
+        onCancelClick={() => setIsVideoModalOpen(false)}
       ></VideoModal>
     </>
   );
 }
 
 function BottomLiveInfoTab() {
+  const [isLessonPopupOpen, setIsLessonPopupOpen] = useState(false);
   return (
     <LiveInfoTabWrapper>
-      <LessonInfoDiv>
+      <LessonInfoDiv onClick={() => setIsLessonPopupOpen(true)}>
         <Image src={Docs} width={17} height={22} alt="수업안" />
         1학년 심화 과정 수업안
       </LessonInfoDiv>
       <Button
         type="PinkGrad"
         text="전송"
-        style={{ height: 40, fontSize: '14px', marginRight: '45px' }}
+        style={{ height: 40, fontSize: '14rem', marginRight: '45rem' }}
       ></Button>
-      <Button type="GrayOutline" style={{ borderRadius: '10px' }}>
+      <Button type="GrayOutline" style={{ borderRadius: '10rem' }}>
         <Image src={Pause} alt="pause" />
       </Button>
       <Button
         type="GrayOutline"
-        style={{ color: COLORS.RED, height: 38, borderRadius: '10px' }}
+        style={{ color: COLORS.RED, height: 38, borderRadius: '10rem' }}
       >
         <StopDiv />
       </Button>
+      <Modal
+        content="전송할 수업안 고르는 모달"
+        btnText={['확인']}
+        isOpen={isLessonPopupOpen}
+        onCancelClick={() => setIsLessonPopupOpen(false)}
+        onOkClick={() => {
+          setIsLessonPopupOpen(false);
+        }}
+      ></Modal>
     </LiveInfoTabWrapper>
   );
 }
 
 const VideoListWrapper = styled.div`
-  border-radius: 30px;
+  border-radius: 30rem;
   background: #fff;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15) inset;
-  padding: 20px 30px;
-  height: 500px;
+  box-shadow: 0rem 0rem 10rem 0rem rgba(0, 0, 0, 0.15) inset;
+  padding: 20rem 30rem;
+  height: 500rem;
   overflow-y: scroll;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 12rem;
   justify-content: flex-end;
-  margin-top: -60px;
+  margin-top: -60rem;
 `;
 
 const VideoWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 30rem;
 `;
 
 const ButtonHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 20rem;
 `;
 
 const GrayText = styled.span`
-  font-size: 14px;
+  font-size: 14rem;
   font-weight: 700;
   color: ${COLORS.GRAY_66};
-  padding: 5px 13px;
+  padding: 5rem 13rem;
 `;
 
 const ContentWrapper2 = styled(ContentWrapper)`
   width: fit-content;
-  gap: 25px;
+  gap: 25rem;
 `;
 
 const LiveInfoTabWrapper = styled.div`
-  border-top: 1px solid #cdcdcd;
+  border-top: 1rem solid #cdcdcd;
   background-color: white;
-  height: 100px;
+  height: 100rem;
   width: 100%;
   position: fixed;
   bottom: 0;
-  margin-left: 210px;
+  margin-left: 210rem;
   display: flex;
-  padding: 20px 200px;
-  gap: 15px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 20rem 200rem;
+  gap: 15rem;
+  box-shadow: 0rem 0rem 10rem 0rem rgba(0, 0, 0, 0.1);
 `;
 
 const LessonInfoDiv = styled.div`
-  width: 504px;
-  height: 39px;
+  width: 504rem;
+  height: 39rem;
   flex-shrink: 0;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  border-radius: 10rem;
+  border: 1rem solid #ddd;
   background: #fff;
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 12rem;
   font-weight: 700;
   color: black;
-  gap: 10px;
-  padding-left: 14px;
+  gap: 10rem;
+  padding-left: 14rem;
+  cursor: pointer;
 `;
 
 const StopDiv = styled.div`
   background-color: ${COLORS.RED};
-  width: 19px;
-  height: 20px;
-  border-radius: 3px;
+  width: 19rem;
+  height: 20rem;
+  border-radius: 3rem;
 `;
 
 const NoContentText = styled.h1`
   color: ${COLORS.GRAY_CD};
   text-align: center;
-  font-size: 36px;
+  font-size: 36rem;
   font-weight: 700;
   position: absolute;
-  top: 490px;
-  left: 550px;
+  top: 490rem;
+  left: 550rem;
 `;

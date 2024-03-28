@@ -22,28 +22,28 @@ export default TodaysClass;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 15px 22px;
-  border-radius: 15px;
-  border: 1px solid ${COLORS.GRAY_CD};
+  gap: 14rem;
+  padding: 15rem 22rem;
+  border-radius: 15rem;
+  border: 1rem solid ${COLORS.GRAY_CD};
   background: #fff;
 `;
 
 const ClassTimeText = styled.h1`
   color: black;
-  font-size: 24px;
+  font-size: 24rem;
   font-weight: 700;
 `;
 
 const ClassNameText = styled.h3`
   color: black;
-  font-size: 20px;
+  font-size: 20rem;
   font-weight: 700;
 `;
 
 export const TimeDescText = styled.h5`
   color: ${COLORS.GRAY_CD};
-  font-size: 15px;
+  font-size: 15rem;
   font-weight: 700;
 `;
 

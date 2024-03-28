@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
 export const reset = css`
   @font-face {
@@ -19,13 +19,14 @@ export const reset = css`
   * {
     box-sizing: border-box;
     margin: 0;
-    font-size: 16px;
+    font-size: 16rem;
     font-family: 'system-ui';
     word-break: keep-all;
   }
 
   html,
   body {
+    font-size: 6.25%;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -62,4 +63,4 @@ export const reset = css`
   li {
     list-style: none;
   }
-`
+`;
