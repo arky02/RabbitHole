@@ -1,16 +1,17 @@
 import { COLORS } from '@/styles/palatte';
-import { useState } from 'react';
+import { ChangeEventHandler, useState } from 'react';
 import styled from 'styled-components';
 
 interface InputProps {
   placeholder?: string;
+  text: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-function Input({ placeholder }: InputProps) {
-  const [text, setText] = useState('');
+function Input({ placeholder, text, onChange }: InputProps) {
   return (
     <InputStyleWrapper
-      onChange={(e) => setText(e.target.value)}
+      onChange={onChange}
       value={text}
       placeholder={placeholder}
     />
