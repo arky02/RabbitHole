@@ -1,25 +1,25 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import UserMenuPopup from './Popups/UserMenuPopup';
-import LogoImg from '/public/icon/logo.svg';
+import LogoImg from '@/public/icon/logo.svg';
 import Button from './Buttons/Button';
-import Backspace from '/public/icon/backspace.svg';
-import Newspaper from '/public/icon/newspaper.svg';
-import Book from '/public/icon/book.svg';
-import BookWithPen from '/public/icon/bookwithpencil.svg';
-import Setting from '/public/icon/setting.svg';
-import Person from '/public/icon/person.svg';
-import HomeBtnImg from '/public/icon/homeBtn.svg';
+import Backspace from '@/public/icon/backspace.svg';
+import Newspaper from '@/public/icon/newspaper.svg';
+import Book from '@/public/icon/book.svg';
+import BookWithPen from '@/public/icon/bookwithpencil.svg';
+import Setting from '@/public/icon/setting.svg';
+import Person from '@/public/icon/person.svg';
+import HomeBtnImg from '@/public/icon/homeBtn.svg';
 import StudentAlertPopup from './Popups/StudentAlertPopup';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PageTitle from './PageTItle';
 import { useState } from 'react';
-import WhiteBook from '/public/icon/whiteBook.svg';
-import WhiteNewspaper from '/public/icon/whiteNewspaper.svg';
-import WhiteBookWithPen from '/public/icon/whiteBookwithpencil.svg';
-import WhiteSetting from '/public/icon/whiteSetting.svg';
-import WhitePerson from '/public/icon/whitePerson.svg';
+import WhiteBook from '@/public/icon/whiteBook.svg';
+import WhiteNewspaper from '@/public/icon/whiteNewspaper.svg';
+import WhiteBookWithPen from '@/public/icon/whiteBookwithpencil.svg';
+import WhiteSetting from '@/public/icon/whiteSetting.svg';
+import WhitePerson from '@/public/icon/whitePerson.svg';
 
 function Nav({ hasSideBar = false }: { hasSideBar?: boolean }) {
   const router = useRouter();

@@ -2,7 +2,7 @@ import Button from '@/components/Buttons/Button';
 import Input from '@/components/Input';
 import styled from 'styled-components';
 import Image from 'next/image';
-import LogoImg from '/public/icon/logo.svg';
+import LogoImg from '@/public/icon/logo.svg';
 import { useState } from 'react';
 import { request } from '@/apis/axios';
 import { COLORS } from '@/styles/palatte';

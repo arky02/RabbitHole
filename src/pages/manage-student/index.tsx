@@ -1,12 +1,12 @@
 import Nav from '@/components/NavigationBar';
 import styled from 'styled-components';
-import BookWithPen from '/public/icon/purpleBookWithPen.svg';
+import BookWithPen from '@/public/icon/purpleBookWithPen.svg';
 import Image from 'next/image';
 import { FlexColumn } from '@/styles/CommonStyles';
 import PageTitle from '@/components/PageTItle';
 import ShortcutMenuChip from '@/components/ShortcutMenuChip';
-import Person from '/public/icon/purplePerson.svg';
-import Crowd from '/public/icon/purpleCrowd.svg';
+import Person from '@/public/icon/purplePerson.svg';
+import Crowd from '@/public/icon/purpleCrowd.svg';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';

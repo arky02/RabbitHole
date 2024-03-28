@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { TimeDescText } from './TodaysClass';
 import { FlexColumn } from '@/styles/CommonStyles';
 import Image from 'next/image';
-import Separator from '/public/icon/rowStrokeSeparator.svg';
+import Separator from '@/public/icon/rowStrokeSeparator.svg';
 import { COLORS } from '@/styles/palatte';
 
 const mockData = [

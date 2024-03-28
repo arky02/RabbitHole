@@ -1,6 +1,6 @@
 import Nav from '@/components/NavigationBar';
 import styled from 'styled-components';
-import BookWithPen from '/public/icon/purpleBookWithPen.svg';
+import BookWithPen from '@/public/icon/purpleBookWithPen.svg';
 import Image from 'next/image';
 import { FlexColumn } from '@/styles/CommonStyles';
 import PageTitle from '@/components/PageTItle';

@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import Logo from '/public/icon/logo.svg';
+import Logo from '@/public/icon/logo.svg';
 import SmallHoverButton from './Buttons/SmallHoverButton';
-import School from '/public/icon/purpleSchool.svg';
+import School from '@/public/icon/purpleSchool.svg';
 import { FlexColumnCenterAll } from '@/styles/CommonStyles';
 import { useRouter } from 'next/router';
-import Crowd from '/public/icon/purpleCrowd.svg';
+import Crowd from '@/public/icon/purpleCrowd.svg';
 
 interface SideBarProps {
   content: {

@@ -2,7 +2,7 @@ import { COLORS } from '@/styles/palatte';
 import Image from 'next/image';
 import { useState } from 'react';
 import styled from 'styled-components';
-import Checked from '/public/icon/checked.svg';
+import Checked from '@/public/icon/checked.svg';
 
 interface CheckboxProps {
   isChecked: boolean;

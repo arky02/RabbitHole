@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import DefaultProfile from '/public/icon/defaultProfileImgIcon.svg';
+import DefaultProfile from '@/public/icon/defaultProfileImgIcon.svg';
 import { COLORS } from '@/styles/palatte';
-import school from '/public/icon/school.svg';
+import school from '@/public/icon/school.svg';
 import Button from './Buttons/Button';
 import {
   FlexColumn,

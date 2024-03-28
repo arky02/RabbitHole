@@ -1,7 +1,7 @@
 import { COLORS } from '@/styles/palatte';
 import styled from 'styled-components';
 import { StyledCheckbox } from './ClassChip';
-import Dots from '/public/icon/dots.svg';
+import Dots from '@/public/icon/dots.svg';
 import Image from 'next/image';
 import Button from './Buttons/Button';
 import Checkbox from './Buttons/Checkbox';

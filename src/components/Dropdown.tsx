@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Book from '/public/icon/book.svg';
-import Arrow from '/public/icon/purpleDownTriArrow.svg';
+import Book from '@/public/icon/book.svg';
+import Arrow from '@/public/icon/purpleDownTriArrow.svg';
 import { Dispatch, SetStateAction, useState } from 'react';
-import UpArrow from '/public/icon/purpleUpTriArrow.svg';
+import UpArrow from '@/public/icon/purpleUpTriArrow.svg';
 import useMenuPopup from '@/hooks/useMenuPopup';
 
 interface DropdownProps {

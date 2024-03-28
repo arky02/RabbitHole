@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { TitleText } from './NavigationBar';
-import Book from '/public/icon/purpleBook.svg';
-import BookWithPen from '/public/icon/purpleBookWithPen.svg';
-import Home from '/public/icon/purpleHome.svg';
-import Person from '/public/icon/purplePerson.svg';
+import Book from '@/public/icon/purpleBook.svg';
+import BookWithPen from '@/public/icon/purpleBookWithPen.svg';
+import Home from '@/public/icon/purpleHome.svg';
+import Person from '@/public/icon/purplePerson.svg';
 import Image from 'next/image';
 import { FlexColumn } from '@/styles/CommonStyles';
 

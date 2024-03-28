@@ -7,7 +7,7 @@ import { FlexColumn } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
 import Image from 'next/image';
 import styled from 'styled-components';
-import Backspace from '/public/icon/forwardArr.svg';
+import Backspace from '@/public/icon/forwardArr.svg';
 import { useRouter } from 'next/router';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';

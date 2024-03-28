@@ -1,7 +1,7 @@
 import Button from '@/components/Buttons/Button';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Recording from '/public/icon/recording.svg';
+import Recording from '@/public/icon/recording.svg';
 import { COLORS } from '@/styles/palatte';
 import {
   ContentWrapper,
@@ -11,8 +11,8 @@ import {
 import PageTitle from '@/components/PageTItle';
 import Nav from '@/components/NavigationBar';
 import SideBar from '@/components/SideBar';
-import Docs from '/public/icon/docs.svg';
-import Pause from '/public/icon/pause.svg';
+import Docs from '@/public/icon/docs.svg';
+import Pause from '@/public/icon/pause.svg';
 import VideoContainer from '@/components/VideoContainer';
 import { useState } from 'react';
 import VideoModal from '@/components/Modals/VideoModal';

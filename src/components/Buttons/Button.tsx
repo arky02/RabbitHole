@@ -2,7 +2,7 @@ import { COLORS } from '@/styles/palatte';
 import Image from 'next/image';
 import { MouseEventHandler, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import HomeImg from '/public/icon/home.svg';
+import HomeImg from '@/public/icon/home.svg';
 
 interface ButtonProps {
   type: 'Login' | 'PinkGrad' | 'Options' | 'WhiteShadow' | 'GrayOutline';

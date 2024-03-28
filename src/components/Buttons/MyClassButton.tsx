@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import Image from 'next/image'
-import Class from '/public/icon/class.svg'
-import { COLORS } from '@/styles/palatte'
+import styled from 'styled-components';
+import Image from 'next/image';
+import Class from '@/public/icon/class.svg';
+import { COLORS } from '@/styles/palatte';
 
 function MyClassButton({ className }: { className: string }) {
   return (
@@ -9,9 +9,9 @@ function MyClassButton({ className }: { className: string }) {
       <Image src={Class} alt="class" style={{ marginRight: '11px' }} />
       {className}
     </StyledButton>
-  )
+  );
 }
-export default MyClassButton
+export default MyClassButton;
 
 const StyledButton = styled.button`
   padding: 23px 16px;
@@ -23,4 +23,4 @@ const StyledButton = styled.button`
   font-weight: 700;
   display: flex;
   align-items: center;
-`
+`;

@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import styled from 'styled-components'
-import RightArrow from '/public/icon/rightArrow.svg'
-import LeftArrow from '/public/icon/leftArrow.svg'
+import Image from 'next/image';
+import styled from 'styled-components';
+import RightArrow from '@/public/icon/rightArrow.svg';
+import LeftArrow from '@/public/icon/leftArrow.svg';
 
 interface ButtonProps {
-  onClick: () => void
-  direction: 'left' | 'right'
-  style: {}
+  onClick: () => void;
+  direction: 'left' | 'right';
+  style: {};
 }
 
 function ArrowButton({ direction, onClick, style }: ButtonProps) {
@@ -17,10 +17,10 @@ function ArrowButton({ direction, onClick, style }: ButtonProps) {
         alt="arrow button"
       ></Image>
     </StyledButton>
-  )
+  );
 }
 
-export default ArrowButton
+export default ArrowButton;
 
 const StyledButton = styled.button`
   position: absolute;
@@ -33,4 +33,4 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   background-color: white;
-`
+`;

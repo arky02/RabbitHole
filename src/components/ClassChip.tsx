@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import Class from '/public/icon/class.svg';
+import Class from '@/public/icon/class.svg';
 import styled from 'styled-components';
-import PlayBtn from '/public/image/playBtn.png';
+import PlayBtn from '@/public/image/playBtn.png';
 import { FlexColumn, FlexRowCenterAll } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
 import { useState } from 'react';
-import Checked from '/public/icon/checked.svg';
+import Checked from '@/public/icon/checked.svg';
 import Checkbox from './Buttons/Checkbox';
 import { ClassProp } from '@/server.types';
 

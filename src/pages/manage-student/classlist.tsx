@@ -17,7 +17,7 @@ import { getClassInfo } from '@/apis/capsuleQuery';
 import { ClassProp } from '@/server.types';
 import Button from '@/components/Buttons/Button';
 import Image from 'next/image';
-import Plus from '/public/icon/purplePlus.svg';
+import Plus from '@/public/icon/purplePlus.svg';
 import { useRouter } from 'next/router';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';

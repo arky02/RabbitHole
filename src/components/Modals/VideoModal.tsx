@@ -4,9 +4,9 @@ import Button from '../Buttons/Button';
 import { FlexColumn, FlexColumnCenterAll } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
 import Image from 'next/image';
-import defaultProfile from '/public/icon/defaultProfileImgIcon.svg';
+import defaultProfile from '@/public/icon/defaultProfileImgIcon.svg';
 import { DashedSeparator } from '../HomeNoticeList';
-import X from '/public/icon/purpleDelete.svg';
+import X from '@/public/icon/purpleDelete.svg';
 
 interface ModalProps {
   isOpen: boolean;

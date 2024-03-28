@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import styled, { keyframes, css } from 'styled-components';
-import DefaultProfile from '/public/icon/defaultProfileImgIcon.svg';
-import DropdownTriBtn from '/public/icon/downTriArrow.svg';
-import CloseDropdownTriBtn from '/public/icon/upTriArrow.svg';
+import DefaultProfile from '@/public/icon/defaultProfileImgIcon.svg';
+import DropdownTriBtn from '@/public/icon/downTriArrow.svg';
+import CloseDropdownTriBtn from '@/public/icon/upTriArrow.svg';
 import useMenuPopup from '@/hooks/useMenuPopup';
 import { Dispatch, MutableRefObject, SetStateAction } from 'react';
 import { COLORS } from '@/styles/palatte';

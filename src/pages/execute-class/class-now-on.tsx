@@ -11,7 +11,7 @@ import Button from '@/components/Buttons/Button';
 import PageTitle from '@/components/PageTItle';
 import styled from 'styled-components';
 import { FlexColumnCenterAll } from '@/styles/CommonStyles';
-import Del from '/public/icon/purpleDelete.svg';
+import Del from '@/public/icon/purpleDelete.svg';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
