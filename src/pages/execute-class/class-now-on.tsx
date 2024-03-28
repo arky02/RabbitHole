@@ -14,6 +14,24 @@ import { FlexColumnCenterAll } from '@/styles/CommonStyles';
 import Del from '/public/icon/purpleDelete.svg';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+import { isLoggedIn } from '@/utils/validateRedirection';
+import { GetServerSidePropsContext } from 'next';
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return !isLoggedIn(await getAccessTokenFromCookie(context))
+    ? {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    : {
+        props: {},
+      };
+};
 
 interface studentType {
   uid: number;

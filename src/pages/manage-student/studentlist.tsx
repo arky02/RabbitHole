@@ -4,6 +4,24 @@ import SideBar from '@/components/SideBar';
 import { FlexColumn, ShadowDiv } from '@/styles/CommonStyles';
 import { ContentWrapper, Section } from '@/pages/execute-class/select-class';
 import { manageClassSidebarContent } from './classlist';
+import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+import { isLoggedIn } from '@/utils/validateRedirection';
+import { GetServerSidePropsContext } from 'next';
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return !isLoggedIn(await getAccessTokenFromCookie(context))
+    ? {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    : {
+        props: {},
+      };
+};
 
 function manageMyStudentList() {
   return (

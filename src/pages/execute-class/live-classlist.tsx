@@ -14,8 +14,26 @@ import SideBar from '@/components/SideBar';
 import Docs from '/public/icon/docs.svg';
 import Pause from '/public/icon/pause.svg';
 import VideoContainer from '@/components/VideoContainer';
-import Modal from '@/components/Modal';
 import { useState } from 'react';
+import VideoModal from '@/components/Modals/VideoModal';
+import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+import { isLoggedIn } from '@/utils/validateRedirection';
+import { GetServerSidePropsContext } from 'next';
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return !isLoggedIn(await getAccessTokenFromCookie(context))
+    ? {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    : {
+        props: {},
+      };
+};
 
 const videoIdList = [
   '1',
@@ -51,6 +69,7 @@ export default LiveClassListSection;
 
 function VideoListContainer() {
   const [checkedVideoList, setCheckedVideoList] = useState<string[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
       <ButtonContainer>
@@ -97,18 +116,25 @@ function VideoListContainer() {
             <VideoContainer
               currState="paused"
               isChecked={checkedVideoList.includes(videoEl)}
-              onClick={() =>
+              onCheck={() =>
                 setCheckedVideoList((prev) =>
                   prev.includes(videoEl)
                     ? prev.filter((el) => el !== videoEl)
                     : [...prev, videoEl],
                 )
               }
+              onClick={() => setIsModalOpen(true)}
             />
           ))}
         </VideoWrapper>
       </VideoListWrapper>
-      <Modal isOpen={false}></Modal>
+      <VideoModal
+        isOpen={isModalOpen}
+        content="dkslfdjsf"
+        btnText={['dfsdfsd']}
+        onOkClick={() => setIsModalOpen(false)}
+        onCancelClick={() => setIsModalOpen(false)}
+      ></VideoModal>
     </>
   );
 }

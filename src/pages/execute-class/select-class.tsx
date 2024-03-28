@@ -1,11 +1,32 @@
 import SmallHoverButton from '@/components/Buttons/SmallHoverButton';
+import { useQuery } from '@tanstack/react-query';
 import ClassChip from '@/components/ClassChip';
 import Nav from '@/components/NavigationBar';
 import PageTitle from '@/components/PageTItle';
 import SideBar from '@/components/SideBar';
 import { FlexColumn } from '@/styles/CommonStyles';
 import styled from 'styled-components';
-import { selectClassData } from '@/mockData';
+import useManageUserToken from '@/hooks/useManageUserToken';
+import { getClassInfo } from '@/apis/capsuleQuery';
+import { ClassProp } from '@/server.types';
+import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+import { isLoggedIn } from '@/utils/validateRedirection';
+import { GetServerSidePropsContext } from 'next';
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return !isLoggedIn(await getAccessTokenFromCookie(context))
+    ? {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    : {
+        props: {},
+      };
+};
 
 export const selectClassSideBarContent = [
   {
@@ -18,6 +39,11 @@ export const selectClassSideBarContent = [
 ];
 
 function selectClass() {
+  const { userToken } = useManageUserToken();
+  const classInfos = useQuery(getClassInfo(userToken)).data?.data.classes;
+
+  //const handleCreateSession = () => {};
+
   return (
     <Section>
       <Nav hasSideBar />
@@ -28,8 +54,14 @@ function selectClass() {
           desc="수업을 실행할 클래스를 선택합니다."
         />
         <ClassWrapper>
-          {selectClassData.map((data, idx) => (
-            <ClassChip key={idx} classInfo={data} hasCheckbox></ClassChip>
+          {classInfos?.map((data: ClassProp) => (
+            <ClassChip
+              key={data.class_id}
+              classInfo={data}
+              onClick={() => {
+                // handleCreateSession(data.class_id);
+              }}
+            ></ClassChip>
           ))}
         </ClassWrapper>
       </ContentWrapper>

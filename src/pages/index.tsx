@@ -9,6 +9,24 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Backspace from '/public/icon/forwardArr.svg';
 import { useRouter } from 'next/router';
+import { isLoggedIn } from '@/utils/validateRedirection';
+import { GetServerSidePropsContext } from 'next';
+import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return !isLoggedIn(await getAccessTokenFromCookie(context))
+    ? {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    : {
+        props: {},
+      };
+};
 
 export default function Home() {
   return (

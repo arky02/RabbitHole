@@ -5,6 +5,24 @@ import Image from 'next/image';
 import { FlexColumn } from '@/styles/CommonStyles';
 import PageTitle from '@/components/PageTItle';
 import ShortcutMenuChip from '@/components/ShortcutMenuChip';
+import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+import { isLoggedIn } from '@/utils/validateRedirection';
+import { GetServerSidePropsContext } from 'next';
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return !isLoggedIn(await getAccessTokenFromCookie(context))
+    ? {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    : {
+        props: {},
+      };
+};
 
 function executeClass() {
   return (

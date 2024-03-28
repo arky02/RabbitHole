@@ -14,12 +14,31 @@ import Dropdown from '@/components/Dropdown';
 import { useState } from 'react';
 import Button from '@/components/Buttons/Button';
 import StudentList from '@/components/StudentList';
+import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+import { isLoggedIn } from '@/utils/validateRedirection';
+import { GetServerSidePropsContext } from 'next';
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return !isLoggedIn(await getAccessTokenFromCookie(context))
+    ? {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    : {
+        props: {},
+      };
+};
 
 const GRADE = [1, 2, 3, 4, 5, 6];
 
 function createClass() {
   const [selectedGrade, setSelectedGrade] = useState('');
   const [selectedClass, setSelectedClass] = useState('');
+  const [className, setClassName] = useState('');
   return (
     <Section2>
       <Nav hasSideBar />
@@ -34,7 +53,11 @@ function createClass() {
             <StyledText style={{ marginBottom: 10 }}>
               새롭게 생성할 클래스의 이름을 입력하세요.
             </StyledText>
-            <Input placeholder="EX. 1학년 영어 A분반"></Input>
+            <Input
+              placeholder="EX. 1학년 영어 A분반"
+              text={className}
+              onChange={(e) => setClassName(e.target.value)}
+            ></Input>
           </div>
           <InnerWrapper2>
             <StyledText>클래스가 속하는 학년/반을 선택하세요.</StyledText>

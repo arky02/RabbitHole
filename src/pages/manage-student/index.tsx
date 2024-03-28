@@ -7,6 +7,24 @@ import PageTitle from '@/components/PageTItle';
 import ShortcutMenuChip from '@/components/ShortcutMenuChip';
 import Person from '/public/icon/purplePerson.svg';
 import Crowd from '/public/icon/purpleCrowd.svg';
+import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+import { isLoggedIn } from '@/utils/validateRedirection';
+import { GetServerSidePropsContext } from 'next';
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return !isLoggedIn(await getAccessTokenFromCookie(context))
+    ? {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      }
+    : {
+        props: {},
+      };
+};
 
 function manageStudent() {
   return (
