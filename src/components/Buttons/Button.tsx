@@ -86,7 +86,7 @@ const StyledButton = styled.button<{
         &:hover {
           background: ${COLORS.MAIN_GRAD};
           color: white;
-          transition: 0.5s ease;
+          transition: 0.2s ease;
           border: 1rem solid white;
           box-shadow: 0rem 0rem 30rem 0rem rgba(0, 0, 0, 0.1);
         }
