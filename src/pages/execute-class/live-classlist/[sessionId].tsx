@@ -21,6 +21,7 @@ import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
 import Modal from '@/components/Modals/Modal';
+import MonitoringVideoList from '@/components/MonitoringVideoList';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -74,7 +75,6 @@ function VideoListContainer() {
   const { sessionId, key: sessionKey } = router.query;
 
   const [checkedVideoList, setCheckedVideoList] = useState<string[]>([]);
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
 
   return (
@@ -125,7 +125,8 @@ function VideoListContainer() {
             <GrayText>전체선택</GrayText>
           </Button>
         </ButtonHeader>
-        <VideoWrapper>
+        <MonitoringVideoList />
+        {/* <VideoWrapper>
           {videoIdList.map((videoEl, idx) => (
             <VideoContainer
               key={idx}
@@ -141,13 +142,8 @@ function VideoListContainer() {
               onClick={() => setIsVideoModalOpen(true)}
             />
           ))}
-        </VideoWrapper>
+        </VideoWrapper> */}
       </VideoListWrapper>
-      <VideoModal
-        isOpen={isVideoModalOpen}
-        onOkClick={() => setIsVideoModalOpen(false)}
-        onCancelClick={() => setIsVideoModalOpen(false)}
-      ></VideoModal>
     </>
   );
 }

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import defaultProfile from '@/public/icon/defaultProfileImgIcon.svg';
 import { DashedSeparator } from '../HomeNoticeList';
 import X from '@/public/icon/purpleDelete.svg';
+import { ForwardedRef, forwardRef } from 'react';
 
 export interface ModalProps {
   isOpen: boolean;
@@ -14,7 +15,10 @@ export interface ModalProps {
   onCancelClick: () => void;
 }
 
-function VideoModal({ isOpen = true, onOkClick, onCancelClick }: ModalProps) {
+export default forwardRef(function VideoModal(
+  { isOpen = true, onOkClick, onCancelClick }: ModalProps,
+  ref: ForwardedRef<HTMLVideoElement>,
+) {
   if (typeof document === 'undefined') return;
   const portalDiv = document.querySelector('#modal');
   if (!portalDiv) return null;
@@ -61,6 +65,7 @@ function VideoModal({ isOpen = true, onOkClick, onCancelClick }: ModalProps) {
               padding: '9rem 20rem',
             }}
           ></Button>
+          <StyledVideo ref={ref} playsInline autoPlay muted></StyledVideo>
         </StyledModalContainer>
       </div>,
       portalDiv,
@@ -68,9 +73,7 @@ function VideoModal({ isOpen = true, onOkClick, onCancelClick }: ModalProps) {
   ) : (
     <></>
   );
-}
-
-export default VideoModal;
+});
 
 const StyledModalBackdrop = styled.div`
   position: fixed;
@@ -133,4 +136,9 @@ const Wrapper = styled.div`
 const DashedSeparator2 = styled(DashedSeparator)`
   margin: 0;
   width: 100%;
+`;
+
+const StyledVideo = styled.video`
+  width: 500px;
+  height: auto;
 `;
