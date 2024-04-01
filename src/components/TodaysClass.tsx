@@ -12,7 +12,7 @@ function TodaysClass() {
         <TimeDescText>00:00 - 00:00</TimeDescText>
       </LeftContainer>
       <Image src={Stroke} alt="separator" />
-      <ClassNameText>1학년 A분반 - 영어</ClassNameText>
+      <ClassNameText>-</ClassNameText>
     </Wrapper>
   );
 }
@@ -39,6 +39,8 @@ const ClassNameText = styled.h3`
   color: black;
   font-size: 20rem;
   font-weight: 700;
+  width: 170px;
+  text-align: center;
 `;
 
 export const TimeDescText = styled.h5`

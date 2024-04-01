@@ -68,9 +68,9 @@ function ClassInfoSection() {
           </TextContainer>
           <ClassListContainer>
             <MyClassButton className="1학년 영어 A분반"></MyClassButton>
-            <MyClassButton className="1학년 영어 A분반"></MyClassButton>
-            <MyClassButton className="1학년 영어 A분반"></MyClassButton>
-            <MyClassButton className="1학년 영어 A분반"></MyClassButton>
+            <MyClassButton className="-"></MyClassButton>
+            <MyClassButton className="-"></MyClassButton>
+            <MyClassButton className="-"></MyClassButton>
           </ClassListContainer>
           <ArrowButton
             direction="right"
@@ -109,6 +109,7 @@ const ShadowBox = styled.div`
   background: #fff;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.12);
   width: 100%;
+  min-width: 1030px;
   height: fit-content;
 `;
 const LeftContainer = styled(FlexColumn)`
