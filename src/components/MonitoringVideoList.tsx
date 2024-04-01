@@ -319,6 +319,7 @@ const Video = ({ stream }: { stream: MediaStream | null }) => {
 
   return (
     <VideoWrapper>
+      {/* @ts-ignore */}
       <StyledVideo ref={ref} playsInline autoPlay muted></StyledVideo>
       {/* <VideoStyleWrapper /> */}
     </VideoWrapper>
