@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Button from '../Buttons/Button';
 import { FlexColumnCenterAll } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
-import { ModalProps } from './VideoModal';
+import { ModalProps } from '@/client.types';
 
 interface Props extends ModalProps {
   isOpen: boolean;

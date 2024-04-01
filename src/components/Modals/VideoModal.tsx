@@ -8,15 +8,15 @@ import defaultProfile from '@/public/icon/defaultProfileImgIcon.svg';
 import { DashedSeparator } from '../HomeNoticeList';
 import X from '@/public/icon/purpleDelete.svg';
 import { ForwardedRef, forwardRef } from 'react';
+import { Student } from '../MonitoringVideoList';
+import { ModalProps } from '@/client.types';
 
-export interface ModalProps {
-  isOpen: boolean;
-  onOkClick: () => void;
-  onCancelClick: () => void;
+interface VideoModalProps extends ModalProps {
+  studentId: number | null;
 }
 
 export default forwardRef(function VideoModal(
-  { isOpen = true, onOkClick, onCancelClick }: ModalProps,
+  { isOpen = true, onOkClick, onCancelClick, studentId }: VideoModalProps,
   ref: ForwardedRef<HTMLVideoElement>,
 ) {
   if (typeof document === 'undefined') return;
@@ -36,8 +36,8 @@ export default forwardRef(function VideoModal(
                 alt="profile"
               ></Image>
               <TextWrapper>
-                <Name>강OO</Name>
-                <Desc>1학년 ㅣ 732801011</Desc>
+                <Name>{`학생 아이디: ${studentId ?? '-'}`}</Name>
+                {/* <Desc>1학년 ㅣ 732801011</Desc> */}
               </TextWrapper>
             </Wrapper>
             <Wrapper>
@@ -87,7 +87,7 @@ const StyledModalBackdrop = styled.div`
 
 const StyledModalContainer = styled(FlexColumnCenterAll)`
   width: 859px;
-  height: 560px;
+  height: 610px;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -96,8 +96,8 @@ const StyledModalContainer = styled(FlexColumnCenterAll)`
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 2pc 12px 0px rgba(0, 0, 0, 0.08);
-  padding: 55px 80px 45px;
-  gap: 25px;
+  padding: 55px 80px 53px;
+  gap: 22px;
 `;
 
 const ContentText = styled.h5`
@@ -139,6 +139,6 @@ const DashedSeparator2 = styled(DashedSeparator)`
 `;
 
 const StyledVideo = styled.video`
-  width: 500px;
+  width: 550px;
   height: auto;
 `;

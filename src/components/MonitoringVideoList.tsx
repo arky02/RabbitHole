@@ -5,8 +5,10 @@ import io from 'socket.io-client';
 import type { Socket } from 'socket.io-client';
 import styled from 'styled-components';
 import Button from './Buttons/Button';
+import useManageUserToken from '@/hooks/useManageUserToken';
+import VideoModal from './Modals/VideoModal';
 
-interface Student {
+export interface Student {
   peerConnection: RTCPeerConnection | null;
   remoteStream: MediaStream | null;
   callID: string | null;
@@ -23,41 +25,21 @@ const servers = {
 };
 
 function MonitoringVideoList() {
-  const [token, setToken] = useState('');
   const [studentList, setStudentList] = useState<Student[]>([]);
   const studentMonitorList = useRef<Student[]>([]);
 
   const socket = useRef<Socket | null>(null);
 
-  const fetchLoginInfo = () => {
-    fetch('https://api.rabbitholecompany.com/login_teacher', {
-      method: 'POST',
-      body: JSON.stringify({
-        username: 'hello',
-        password: '00000',
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Request-Headers': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setToken(data.token);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const { userToken } = useManageUserToken();
 
   const connectSocket = () => {
-    if (token.length !== 0 && socket.current == null) {
-      console.log('attempting to connect : ' + token);
+    if (userToken.length !== 0 && socket.current == null) {
+      console.log('attempting to connect : ' + userToken);
 
       socket.current = io('https://api.rabbitholecompany.com/', {
         reconnectionDelayMax: 10000,
         query: {
-          token: token,
+          token: userToken,
         },
       });
 
@@ -284,17 +266,19 @@ function MonitoringVideoList() {
     }
   };
 
-  fetchLoginInfo();
-
   useEffect(() => {
     connectSocket();
-  }, [token, studentList]);
+  }, [userToken, studentList]);
 
   return (
     <VideoListWrapper>
       {studentList &&
         studentList.map((student, idx: number) => (
-          <Video stream={student.remoteStream} key={student.studentUID} />
+          <Video
+            stream={student.remoteStream}
+            studentId={student.studentUID}
+            key={student.studentUID}
+          />
         ))}
       {/* <div> Student Number : {studentList && studentList.length}</div> */}
     </VideoListWrapper>
@@ -309,20 +293,40 @@ export default MonitoringVideoList;
 // 123432		: 9
 // 214231		: 10
 
-const Video = ({ stream }: { stream: MediaStream | null }) => {
+const Video = ({
+  stream,
+  studentId,
+}: {
+  stream: MediaStream | null;
+  studentId: number | null;
+}) => {
   const ref = useRef<HTMLVideoElement | null>();
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  console.log(studentId);
 
   useEffect(() => {
-    ref.current!.srcObject = stream;
+    if (ref.current) {
+      ref.current!.srcObject = stream;
+    }
   }),
     [];
 
   return (
-    <VideoWrapper>
-      {/* @ts-ignore */}
-      <StyledVideo ref={ref} playsInline autoPlay muted></StyledVideo>
-      {/* <VideoStyleWrapper /> */}
-    </VideoWrapper>
+    <>
+      <VideoWrapper onClick={() => setIsVideoModalOpen(true)}>
+        {/* @ts-ignore */}
+        <StyledVideo ref={ref} playsInline autoPlay muted></StyledVideo>
+        {/* <VideoStyleWrapper /> */}
+      </VideoWrapper>
+      <VideoModal
+        /* @ts-ignore */
+        ref={ref}
+        isOpen={isVideoModalOpen}
+        onOkClick={() => setIsVideoModalOpen(false)}
+        onCancelClick={() => setIsVideoModalOpen(false)}
+        studentId={studentId}
+      ></VideoModal>
+    </>
   );
 };
 
