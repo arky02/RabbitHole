@@ -132,13 +132,13 @@ function PopupMenu({ popupRef, btnRef, isOpen, setIsOpen }: PopupMenuProps) {
 }
 
 const PopupMenuWrapper = styled.div<{ $isOpen: boolean }>`
-  padding: 33px 65px 33px 40px
-  height: 410px
-  border-radius: 20px
+  padding: 33px 65px 33px 40px;
+  height: 410px;
+  border-radius: 20px;
   background: #fff;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 45px
+  top: 45px;
   right: 0;
   z-index: 10;
   /* animation: ${({ $isOpen }) =>
@@ -153,19 +153,19 @@ const PopupMenuWrapper = styled.div<{ $isOpen: boolean }>`
 
 const ProfileInfoWrapper = styled.div`
   display: flex;
-  gap: 25px
-  margin-bottom: 40px
+  gap: 25px;
+  margin-bottom: 40px;
 `;
 
 const Name = styled.h1`
-  font-size: 18rem
+  font-size: 18rem;
   font-weight: 600;
-  margin-bottom: 7px
+  margin-bottom: 7px;
 `;
 
 const Description = styled.h5`
   color: ${COLORS.GRAY_97};
-  font-size: 12rem
+  font-size: 12rem;
   font-weight: 700;
 `;
 
@@ -174,7 +174,7 @@ const OptionsMenuWrapper = styled(FlexColumn)`
 `;
 
 const OptionWrapper = styled(FlexColumn)`
-  gap: 7px
+  gap: 7px;
   align-items: flex-start;
 `;
 
@@ -185,8 +185,8 @@ const Option = styled.button`
 
 const CloseBtnWrapper = styled.div`
   position: absolute;
-  right: 20px
-  bottom: 16px
+  right: 20px;
+  bottom: 16px;
 `;
 
 function MenuDropdownBtn({ userName, btnRef, setIsOpen }: DropdownBtnProps) {
@@ -213,12 +213,12 @@ function MenuDropdownBtn({ userName, btnRef, setIsOpen }: DropdownBtnProps) {
 }
 
 const DropdownWrapper = styled.div`
-  padding: 11px 19px
+  padding: 11px 19px;
   display: flex;
   align-items: center;
-  height: 46px
+  height: 46px;
   flex-shrink: 0;
-  border-radius: 30px
+  border-radius: 30px;
   font-weight: 500;
   background: #fff;
   box-shadow: 0px 0px 13.4px 1px rgba(0, 0, 0, 0.1);

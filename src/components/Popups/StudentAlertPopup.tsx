@@ -36,11 +36,11 @@ function ButtonWrapper({ btnRef, setIsOpen }: ButtonWrapperProps) {
 
 const PopupWrapper = styled.div`
   position: absolute;
-  top: 70px
-  right: 230px
-  width: 200px
-  height: 200px
-  border-radius: 20px
+  top: 70px;
+  right: 230px;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
   background: white;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   z-index: 10;

@@ -64,22 +64,22 @@ const StyledButton = styled.button<{
   ${({ $type }) => {
     if ($type === 'Login')
       return css`
-        padding: 10px 15px
-        border-radius: 30px
-        font-size: 20rem
+        padding: 10px 15px;
+        border-radius: 30px;
+        font-size: 20rem;
         width: 100%;
       `;
     else if ($type === 'PinkGrad')
       return css`
-        padding: 12px 23px
-        border-radius: 40px
-        font-size: 18rem
+        padding: 12px 23px;
+        border-radius: 40px;
+        font-size: 18rem;
       `;
     else if ($type === 'Options')
       return css`
-        padding: 12px 23px
-        border-radius: 40px
-        font-size: 18rem
+        padding: 12px 23px;
+        border-radius: 40px;
+        font-size: 18rem;
         color: ${COLORS.GRAY_97};
         border: 1px solid ${COLORS.GRAY_CD};
         background: #fff;
@@ -96,8 +96,8 @@ const StyledButton = styled.button<{
       `;
     else if ($type === 'WhiteShadow')
       return css`
-        padding: 13px 20px
-        border-radius: 30px
+        padding: 13px 20px;
+        border-radius: 30px;
         background: #ffffffd8;
         box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
         color: ${COLORS.GRAY_97};
@@ -107,8 +107,8 @@ const StyledButton = styled.button<{
       `;
     else
       return css`
-        border-radius: 30px
-        padding: 6px 9px
+        border-radius: 30px;
+        padding: 6px 9px;
         border: 1px solid ${COLORS.GRAY_CD};
         background: #fff;
         text-align: center;
