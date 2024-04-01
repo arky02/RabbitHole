@@ -78,22 +78,26 @@ function VideoListContainer() {
   const { sessionId, key: sessionKey } = router.query;
 
   const [checkedVideoList, setCheckedVideoList] = useState<string[]>([]);
-  const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
+  const [isCodeModalOpen, setIsCodeModalOpen] = useState<number>(0);
 
   return (
     <>
       <ButtonContainer>
-        <Button type="GrayOutline" onClick={() => setIsCodeModalOpen(true)}>
+        <Button type="GrayOutline" onClick={() => setIsCodeModalOpen(1)}>
           <GrayText>참여코드 불러오기</GrayText>
         </Button>
-        <Button type="GrayOutline">
+        <Button type="GrayOutline" onClick={() => setIsCodeModalOpen(2)}>
           <GrayText>단어게임 성적</GrayText>
         </Button>
         <Modal
-          isOpen={isCodeModalOpen}
-          onCancelClick={() => setIsCodeModalOpen(false)}
-          onOkClick={() => setIsCodeModalOpen(false)}
-          content={`수업 참여 코드는 ${sessionKey} 입니다.`}
+          isOpen={Boolean(isCodeModalOpen)}
+          onCancelClick={() => setIsCodeModalOpen(0)}
+          onOkClick={() => setIsCodeModalOpen(0)}
+          content={
+            isCodeModalOpen === 1
+              ? `수업 참여 코드는 ${sessionKey} 입니다.`
+              : '개발 중인 기능 입니다.'
+          }
           btnText={['확인']}
         ></Modal>
       </ButtonContainer>
