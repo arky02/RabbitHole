@@ -17,6 +17,7 @@ import StudentList from '@/components/StudentList';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -36,6 +37,8 @@ export const getServerSideProps = async (
 const GRADE = [1, 2, 3, 4, 5, 6];
 
 function createClass() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('학생 관리');
   const [selectedGrade, setSelectedGrade] = useState('');
   const [selectedClass, setSelectedClass] = useState('');
   const [className, setClassName] = useState('');
@@ -85,7 +88,7 @@ function createClass() {
                 type="PinkGrad"
                 text="일괄 삭제"
                 style={{
-                  boxShadow: '0rem 0rem 20rem 0rem rgba(0, 0, 0, 0.10)',
+                  boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.10)',
                 }}
               ></Button>
             </ButtonWrapper>
@@ -105,13 +108,13 @@ const Section2 = styled(Section)`
 
 const ContentWrapper2 = styled(ContentWrapper)`
   width: 100%;
-  padding-right: 200rem;
+  padding-right: 200px;
 `;
 
 const ShadowWrapper = styled(ShadowDiv)`
-  padding: 35rem 50rem 25rem 45rem;
-  border-radius: 30rem;
-  gap: 30rem;
+  padding: 35px 50px 25px 45px;
+  border-radius: 30px;
+  gap: 30px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -125,11 +128,11 @@ const StyledText = styled.h5`
 
 const ButtonWrapper = styled.div`
   display: flex;
-  gap: 23rem;
+  gap: 23px;
 `;
 
 const InnerWrapper2 = styled.div`
   display: flex;
   align-items: center;
-  gap: 15rem;
+  gap: 15px;
 `;

@@ -12,8 +12,13 @@ import {
 import MyClassButton from './Buttons/MyClassButton';
 import ArrowButton from './Buttons/ArrowButton';
 import TodaysClass from './TodaysClass';
+import { useRouter } from 'next/router';
+import usePrevPath from '@/zustand/usePrevPath';
 
 function ClassInfoSection() {
+  const router = useRouter();
+  const { setPrevPath } = usePrevPath();
+
   return (
     <ShadowBox>
       <LeftContainer>
@@ -31,7 +36,7 @@ function ClassInfoSection() {
                 <Image
                   src={school}
                   alt="school"
-                  style={{ marginRight: '6rem' }}
+                  style={{ marginRight: '6px' }}
                 />
                 OO초등학교
               </SchoolText>
@@ -43,7 +48,13 @@ function ClassInfoSection() {
         <MyClassContainer>
           <TextContainer>
             <TitleText>나의 담당 클래스</TitleText>
-            <Button type="GrayOutline">
+            <Button
+              type="GrayOutline"
+              onClick={() => {
+                setPrevPath('/');
+                router.push('/manage-student/classlist');
+              }}
+            >
               <span
                 style={{
                   fontSize: '11rem',
@@ -64,12 +75,12 @@ function ClassInfoSection() {
           <ArrowButton
             direction="right"
             onClick={() => {}}
-            style={{ top: '70rem', right: '-45rem' }}
+            style={{ top: '70px', right: '-45px' }}
           ></ArrowButton>
           <ArrowButton
             direction="left"
             onClick={() => {}}
-            style={{ top: '70rem', left: '-45rem' }}
+            style={{ top: '70px', left: '-45px' }}
           ></ArrowButton>
         </MyClassContainer>
       </LeftContainer>
@@ -94,42 +105,42 @@ export default ClassInfoSection;
 const ShadowBox = styled.div`
   display: flex;
   justify-content: space-evenly;
-  border-radius: 20rem;
+  border-radius: 20px;
   background: #fff;
-  box-shadow: 0rem 0rem 10rem 0rem rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.12);
   width: 100%;
   height: fit-content;
 `;
 const LeftContainer = styled(FlexColumn)`
-  padding: 35rem 72rem 53rem 60rem;
+  padding: 35px 72px 53px 60px;
   justify-content: center;
-  gap: 38rem;
+  gap: 38px;
 `;
 
 const RightContainer = styled(FlexColumn)`
-  padding: 35rem 40rem 0 15rem;
+  padding: 35px 40px 0 15px;
   height: 100%;
-  gap: 16rem;
+  gap: 16px;
 `;
 
 const MyClassContainer = styled(FlexColumn)`
-  gap: 21rem;
+  gap: 21px;
   position: relative;
 `;
 
 const ProfileContainer = styled.div`
   display: flex;
-  gap: 50rem;
+  gap: 50px;
 `;
 
 const ProfileWrapper = styled(FlexColumn)`
-  gap: 12rem;
-  margin-top: 20rem;
+  gap: 12px;
+  margin-top: 20px;
 `;
 
 const NameAndSchoolWrapper = styled.div`
   display: flex;
-  gap: 25rem;
+  gap: 25px;
   align-items: center;
 `;
 
@@ -159,26 +170,26 @@ const TitleText = styled.h1`
 
 const TextContainer = styled.div`
   display: flex;
-  gap: 18rem;
+  gap: 18px;
   align-items: center;
 `;
 
 const ClassListContainer = styled.div`
   display: flex;
-  gap: 10rem;
+  gap: 10px;
 `;
 const ClassContainer = styled(FlexColumnCenterAll)`
-  gap: 10rem;
+  gap: 10px;
 `;
 
 const CurrTimeIndicator = styled(ShadowDiv)`
-  border-radius: 30rem;
+  border-radius: 30px;
   background: #fff;
   color: #666;
   text-align: center;
   font-size: 11rem;
   font-weight: 700;
-  padding: 8rem 12rem;
+  padding: 8px 12px;
 `;
 
 const TitleContainer = styled.div`
@@ -189,8 +200,8 @@ const TitleContainer = styled.div`
 `;
 
 const RowSeparator = styled.div`
-  border-left: 2rem solid ${COLORS.GRAY_E5};
-  height: 400rem;
-  margin-top: 25rem;
-  margin-left: 15rem;
+  border-left: 2px solid ${COLORS.GRAY_E5};
+  height: 400px;
+  margin-top: 25px;
+  margin-left: 15px;
 `;

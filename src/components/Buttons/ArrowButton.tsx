@@ -24,11 +24,11 @@ export default ArrowButton;
 
 const StyledButton = styled.button`
   position: absolute;
-  width: 50rem;
-  height: 50rem;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0;
-  border-radius: 999rem;
-  box-shadow: 0rem 0rem 10rem 0rem rgba(16, 16, 16, 0.25);
+  border-radius: 999px;
+  box-shadow: 0px 0px 10px 0px rgba(5, 5, 5, 0.25);
   display: flex;
   justify-content: center;
   align-items: center;

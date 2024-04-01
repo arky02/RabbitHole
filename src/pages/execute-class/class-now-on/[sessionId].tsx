@@ -28,6 +28,7 @@ import {
 } from '@tanstack/react-query';
 import { getStudentInSession } from '@/apis/capsuleQuery';
 import { studentListRes } from '@/server.types';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -45,6 +46,8 @@ export const getServerSideProps = async (
 };
 
 function classNowOn() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('수업 실행');
   const queryClient = useQueryClient();
   const router = useRouter();
   const { sessionId, key: sessionKey } = router.query;
@@ -120,7 +123,7 @@ function classNowOn() {
           <Button
             type="PinkGrad"
             text="수업 시작하기"
-            style={{ marginBottom: '6rem' }}
+            style={{ marginBottom: '6px' }}
             onClick={requestSessionStart}
           />
         </Wrapper>
@@ -142,7 +145,7 @@ function classNowOn() {
                   onClick={() => {
                     removeStudentFromSession(student.uid);
                   }}
-                  style={{ cursor: 'pointer', marginLeft: '15rem' }}
+                  style={{ cursor: 'pointer', marginLeft: '15px' }}
                 />
               </Button>
             ))
@@ -160,15 +163,15 @@ export default classNowOn;
 const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
-  gap: 36rem;
+  gap: 36px;
 `;
 
 const InviteCodeDiv = styled(FlexColumnCenterAll)`
-  border-radius: 20rem;
-  border: 1rem solid #cdcdcd;
+  border-radius: 20px;
+  border: 1px solid #cdcdcd;
   background: #fff;
-  width: 763rem;
-  height: 193rem;
+  width: 763px;
+  height: 193px;
   justify-content: space-evenly;
   flex-shrink: 0;
 `;
@@ -188,12 +191,12 @@ const CodeText = styled.h1`
 `;
 
 const StudentListWrapper = styled.div`
-  border-radius: 20rem;
+  border-radius: 20px;
   background: #f7f7f7;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 31rem 35rem;
-  gap: 14rem;
+  padding: 31px 35px;
+  gap: 14px;
 `;
 
 const BoldText = styled.h1`

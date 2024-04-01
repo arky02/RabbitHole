@@ -6,7 +6,7 @@ import { COLORS } from '@/styles/palatte';
 function MyClassButton({ className }: { className: string }) {
   return (
     <StyledButton>
-      <Image src={Class} alt="class" style={{ marginRight: '11rem' }} />
+      <Image src={Class} alt="class" style={{ marginRight: '11px' }} />
       {className}
     </StyledButton>
   );
@@ -14,9 +14,9 @@ function MyClassButton({ className }: { className: string }) {
 export default MyClassButton;
 
 const StyledButton = styled.button`
-  padding: 23rem 16rem;
-  border-radius: 20rem;
-  border: 1rem solid ${COLORS.GRAY_CD};
+  padding: 23px 16px;
+  border-radius: 20px;
+  border: 1px solid ${COLORS.GRAY_CD};
   background: white;
   color: #666;
   font-size: 15rem;

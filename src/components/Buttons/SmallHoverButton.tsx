@@ -32,8 +32,8 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   height: fit-content;
-  border-radius: 5rem;
-  padding: 5.5rem 15rem 5.5rem 10rem;
+  border-radius: 5px;
+  padding: 5.5px 15px 5.5px 10px;
   &:hover {
     background: ${COLORS.GRAY_D9};
     color: #666;
@@ -47,8 +47,8 @@ const StyledButtonDiv = styled.div`
   display: flex;
   align-items: center;
   height: fit-content;
-  border-radius: 5rem;
-  padding: 5.5rem 15rem 5.5rem 10rem;
+  border-radius: 5px;
+  padding: 5.5px 15px 5.5px 10px;
   &:hover {
     background: ${COLORS.GRAY_D9};
     color: #666;

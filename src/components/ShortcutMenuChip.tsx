@@ -27,18 +27,18 @@ export default ShortcutMenuChip;
 
 export const ShadowWrapper = styled(Link)`
   display: flex;
-  border-radius: 40rem;
+  border-radius: 40px;
   background: white;
-  box-shadow: 0rem 4rem 10rem 0rem rgba(0, 0, 0, 0.1);
-  padding: 50rem 25rem 0rem 37rem;
-  width: 300rem;
-  height: 175rem;
-  gap: 30rem;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 50px 25px 0px 37px;
+  width: 300px;
+  height: 175px;
+  gap: 30px;
 `;
 
 const TextWrapper = styled(FlexColumn)`
-  gap: 12rem;
-  margin-top: -15rem;
+  gap: 12px;
+  margin-top: -15px;
 `;
 
 const Title = styled.h1`

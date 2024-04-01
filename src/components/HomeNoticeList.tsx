@@ -26,7 +26,7 @@ const Wrapper = styled(FlexColumn)``;
 const RowContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 14rem 0;
+  margin: 14px 0;
 `;
 const NoticeTitle = styled.h2`
   color: #666;
@@ -34,6 +34,6 @@ const NoticeTitle = styled.h2`
   font-weight: 700;
 `;
 export const DashedSeparator = styled.div`
-  border-bottom: 2rem dashed ${COLORS.GRAY_E5};
-  margin-left: -15rem;
+  border-bottom: 2px dashed ${COLORS.GRAY_E5};
+  margin-left: -15px;
 `;

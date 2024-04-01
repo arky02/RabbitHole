@@ -22,6 +22,7 @@ import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
 import Modal from '@/components/Modals/Modal';
 import MonitoringVideoList from '@/components/MonitoringVideoList';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -54,6 +55,8 @@ const videoIdList = [
 ];
 
 function LiveClassListSection() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('수업 실행');
   return (
     <Section>
       <Nav hasSideBar />
@@ -159,14 +162,14 @@ function BottomLiveInfoTab() {
       <Button
         type="PinkGrad"
         text="전송"
-        style={{ height: 40, fontSize: '14rem', marginRight: '45rem' }}
+        style={{ height: 40, fontSize: '14rem', marginRight: '45px' }}
       ></Button>
-      <Button type="GrayOutline" style={{ borderRadius: '10rem' }}>
+      <Button type="GrayOutline" style={{ borderRadius: '10px' }}>
         <Image src={Pause} alt="pause" />
       </Button>
       <Button
         type="GrayOutline"
-        style={{ color: COLORS.RED, height: 38, borderRadius: '10rem' }}
+        style={{ color: COLORS.RED, height: 38, borderRadius: '10px' }}
       >
         <StopDiv />
       </Button>
@@ -184,82 +187,82 @@ function BottomLiveInfoTab() {
 }
 
 const VideoListWrapper = styled.div`
-  border-radius: 30rem;
+  border-radius: 30px;
   background: #fff;
-  box-shadow: 0rem 0rem 10rem 0rem rgba(0, 0, 0, 0.15) inset;
-  padding: 20rem 30rem;
-  height: 500rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15) inset;
+  padding: 20px 30px;
+  height: 500px;
   overflow-y: scroll;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 12rem;
+  gap: 12px;
   justify-content: flex-end;
-  margin-top: -60rem;
+  margin-top: -60px;
 `;
 
 const VideoWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30rem;
+  gap: 30px;
 `;
 
 const ButtonHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20rem;
+  margin-bottom: 20px;
 `;
 
 const GrayText = styled.span`
   font-size: 14rem;
   font-weight: 700;
   color: ${COLORS.GRAY_66};
-  padding: 5rem 13rem;
+  padding: 5px 13px;
 `;
 
 const ContentWrapper2 = styled(ContentWrapper)`
   width: fit-content;
-  gap: 25rem;
+  gap: 25px;
 `;
 
 const LiveInfoTabWrapper = styled.div`
-  border-top: 1rem solid #cdcdcd;
+  border-top: 1px solid #cdcdcd;
   background-color: white;
-  height: 100rem;
+  height: 100px;
   width: 100%;
   position: fixed;
   bottom: 0;
-  margin-left: 210rem;
+  margin-left: 210px;
   display: flex;
-  padding: 20rem 200rem;
-  gap: 15rem;
-  box-shadow: 0rem 0rem 10rem 0rem rgba(0, 0, 0, 0.1);
+  padding: 20px 200px;
+  gap: 15px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 `;
 
 const LessonInfoDiv = styled.div`
-  width: 504rem;
-  height: 39rem;
+  width: 504px;
+  height: 39px;
   flex-shrink: 0;
-  border-radius: 10rem;
-  border: 1rem solid #ddd;
+  border-radius: 10px;
+  border: 1px solid #ddd;
   background: #fff;
   display: flex;
   align-items: center;
   font-size: 12rem;
   font-weight: 700;
   color: black;
-  gap: 10rem;
-  padding-left: 14rem;
+  gap: 10px;
+  padding-left: 14px;
   cursor: pointer;
 `;
 
 const StopDiv = styled.div`
   background-color: ${COLORS.RED};
-  width: 19rem;
-  height: 20rem;
-  border-radius: 3rem;
+  width: 19px;
+  height: 20px;
+  border-radius: 3px;
 `;
 
 const NoContentText = styled.h1`
@@ -268,6 +271,6 @@ const NoContentText = styled.h1`
   font-size: 36rem;
   font-weight: 700;
   position: absolute;
-  top: 490rem;
-  left: 550rem;
+  top: 490px;
+  left: 550px;
 `;

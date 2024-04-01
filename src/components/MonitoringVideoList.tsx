@@ -345,7 +345,7 @@ const VideoListWrapper = styled.div`
   height: 500px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30rem;
+  gap: 30px;
 `;
 
 const VideoStyleWrapper = styled.div`

@@ -26,11 +26,11 @@ function Checkbox({ isChecked, onClick }: CheckboxProps) {
 export default Checkbox;
 
 export const StyledCheckbox = styled.button`
-  border-radius: 4rem;
-  border: 1rem solid ${COLORS.GRAY_CD};
-  width: 21rem;
-  height: 21rem;
-  margin-right: 15rem;
+  border-radius: 4px;
+  border: 1px solid ${COLORS.GRAY_CD};
+  width: 21px;
+  height: 21px;
+  margin-right: 15px;
   background-color: white;
   position: relative;
 `;

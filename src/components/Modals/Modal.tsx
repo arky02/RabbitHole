@@ -32,7 +32,7 @@ function Modal({
           {btnText.map((text) => (
             <Button
               type="GrayOutline"
-              style={{ padding: '10rem 20rem', color: COLORS.GRAY_66 }}
+              style={{ padding: '10px 20px', color: COLORS.GRAY_66 }}
               onClick={onOkClick}
             >
               {text}
@@ -60,17 +60,17 @@ const StyledModalBackdrop = styled.div`
 `;
 
 const StyledModalContainer = styled(FlexColumnCenterAll)`
-  width: 500rem;
+  width: 500px;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
   background-color: white;
-  border-radius: 20rem;
-  box-shadow: 0 2pc 12rem 0rem rgba(0, 0, 0, 0.08);
-  padding: 55rem 80rem 45rem;
-  gap: 25rem;
+  border-radius: 20px;
+  box-shadow: 0 2pc 12px 0px rgba(0, 0, 0, 0.08);
+  padding: 55px 80px 45px;
+  gap: 25px;
 `;
 
 const ContentText = styled.h5`

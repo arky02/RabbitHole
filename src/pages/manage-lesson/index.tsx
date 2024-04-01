@@ -8,6 +8,7 @@ import ShortcutMenuChip from '@/components/ShortcutMenuChip';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -25,10 +26,12 @@ export const getServerSideProps = async (
 };
 
 function manageLesson() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('수업안 관리');
   return (
     <Section>
       <Nav />
-      <PageTitle title="수업안 관리" margin="0 0 30rem" />
+      <PageTitle title="수업안 관리" margin="0 0 30px" />
       <ShortcutMenuChip
         title="수업안 제작"
         desc="저장된 수업을 확인하고 새로운 수업을 구성할 수 있습니다."
@@ -43,6 +46,6 @@ function manageLesson() {
 export default manageLesson;
 
 const Section = styled(FlexColumn)`
-  margin-top: 205rem;
-  padding: 0 0 0 170rem;
+  margin-top: 205px;
+  padding: 0 0 0 170px;
 `;

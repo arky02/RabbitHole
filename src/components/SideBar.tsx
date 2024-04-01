@@ -51,7 +51,7 @@ function OptionContents({ content }: SideBarProps) {
           {optionContent.options.map((option, idx) => (
             <SmallHoverButton
               key={idx}
-              style={{ marginBottom: '3rem' }}
+              style={{ marginBottom: '3px' }}
               onClick={() => router.push(option[1])}
             >
               {option[0]}
@@ -64,8 +64,8 @@ function OptionContents({ content }: SideBarProps) {
 }
 
 const Wrapper = styled.div`
-  box-shadow: 1rem 0rem 10rem 0rem rgba(0, 0, 0, 0.1);
-  padding: 80rem 40rem;
+  box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 80px 40px;
   height: 100vh;
   z-index: 100;
   position: fixed;
@@ -73,7 +73,7 @@ const Wrapper = styled.div`
 `;
 
 const ContentWrapper = styled(FlexColumnCenterAll)`
-  margin-bottom: 40rem;
+  margin-bottom: 40px;
 `;
 
 const OptionTitle = styled.h5`
@@ -84,6 +84,6 @@ const OptionTitle = styled.h5`
 const TitleWrapper = styled.div`
   display: flex;
   align-items: flex-start;
-  margin-bottom: 10rem;
-  gap: 8rem;
+  margin-bottom: 10px;
+  gap: 8px;
 `;

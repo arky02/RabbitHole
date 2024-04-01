@@ -49,8 +49,8 @@ function StudentList() {
 export default StudentList;
 
 const Wrapper = styled(Border20GrayD9Div)`
-  padding: 18rem 15rem 25rem 42rem;
-  height: 220rem;
+  padding: 18px 15px 25px 42px;
+  height: 220px;
   width: 100%;
 `;
 
@@ -58,20 +58,20 @@ const Text = styled.h5`
   color: ${COLORS.GRAY_66};
   font-size: 14rem;
   font-weight: 700;
-  margin-bottom: 7rem;
+  margin-bottom: 7px;
 `;
 
 const ListWrapper = styled(FlexColumn)`
   overflow-y: scroll;
-  height: 170rem;
+  height: 170px;
 `;
 
 const ListDiv = styled.div`
   display: flex;
   align-items: center;
-  gap: 19rem;
-  padding: 16rem 0;
-  border-bottom: 1rem solid #e0e0e0;
+  gap: 19px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e0e0e0;
 `;
 
 const Name = styled.h3`

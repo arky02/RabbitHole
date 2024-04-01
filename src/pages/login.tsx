@@ -99,20 +99,20 @@ const PageFlexCenterWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 60rem;
+  gap: 60px;
 `;
 
 const ShadowWrapper = styled.div`
   display: flex;
   width: fit-content;
-  gap: 100rem;
-  padding: 0 90rem;
+  gap: 100px;
+  padding: 0 90px;
   align-items: center;
   justify-content: center;
-  height: 437rem;
-  border-radius: 40rem;
+  height: 437px;
+  border-radius: 40px;
   background: #fff;
-  box-shadow: 0rem 4rem 25rem 7rem rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 25px 7px rgba(0, 0, 0, 0.08);
 `;
 
 const FlexColumnWrapper = styled.div`
@@ -125,8 +125,8 @@ const FlexColumnWrapper = styled.div`
 const TextWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 15rem;
-  margin-bottom: 43rem;
+  gap: 15px;
+  margin-bottom: 43px;
 `;
 
 const LogoText = styled.h1`
@@ -144,26 +144,26 @@ const LogoText = styled.h1`
 const DescriptionText = styled.h3`
   font-size: 24rem;
   font-weight: 700;
-  margin-top: 10rem;
+  margin-top: 10px;
 `;
 
 const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12rem;
-  margin-bottom: 30rem;
+  gap: 12px;
+  margin-bottom: 30px;
 `;
 
 const GrayText = styled.h5`
   color: ${COLORS.GRAY_94};
   text-align: center;
   font-size: 14rem;
-  margin-top: 20rem;
+  margin-top: 20px;
   font-weight: 500;
 `;
 
 const ErrorText = styled.h5`
   color: ${COLORS.RED};
   font-size: 14rem;
-  margin-left: 15rem;
+  margin-left: 15px;
 `;

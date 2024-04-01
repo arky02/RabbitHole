@@ -7,6 +7,7 @@ import { manageClassSidebarContent } from './classlist';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -24,6 +25,8 @@ export const getServerSideProps = async (
 };
 
 function manageMyStudentList() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('학생 관리');
   return (
     <Section>
       <Nav hasSideBar />

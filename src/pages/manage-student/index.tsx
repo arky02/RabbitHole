@@ -10,6 +10,7 @@ import Crowd from '@/public/icon/purpleCrowd.svg';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -27,10 +28,12 @@ export const getServerSideProps = async (
 };
 
 function manageStudent() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('학생 관리');
   return (
     <Section>
       <Nav />
-      <PageTitle title="학생 관리" margin="0 0 30rem" />
+      <PageTitle title="학생 관리" margin="0 0 30px" />
       <MenuContainer>
         <ShortcutMenuChip
           title="클래스 관리"
@@ -54,11 +57,11 @@ function manageStudent() {
 export default manageStudent;
 
 const Section = styled(FlexColumn)`
-  margin-top: 205rem;
-  padding: 0 0 0 170rem;
+  margin-top: 205px;
+  padding: 0 0 0 170px;
 `;
 
 const MenuContainer = styled.div`
   display: flex;
-  gap: 25rem;
+  gap: 25px;
 `;

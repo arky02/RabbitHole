@@ -22,6 +22,7 @@ import { useRouter } from 'next/router';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -53,6 +54,9 @@ export const manageClassSidebarContent = [
 ];
 
 function manageClassList() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('학생 관리');
+
   const { userToken } = useManageUserToken();
   const classInfos = useQuery(getClassInfo(userToken)).data?.data.classes;
 
@@ -71,7 +75,7 @@ function manageClassList() {
           <Button
             type="GrayOutline"
             text="클래스 추가하기"
-            style={{ height: 40, padding: '0 20rem 0 14rem', marginRight: 40 }}
+            style={{ height: 40, padding: '0 20px 0 14px', marginRight: 40 }}
             onClick={() => router.push('/manage-student/create-class')}
           >
             <Image src={Plus} alt="plus" style={{ marginRight: 17 }} />
@@ -101,5 +105,5 @@ export default manageClassList;
 
 const ButtonWrapper = styled.div`
   display: flex;
-  gap: 10rem;
+  gap: 10px;
 `;

@@ -71,32 +71,32 @@ const GrayText = styled.h3<{ $hasCheckbox: boolean }>`
 const ColumnWrapper = styled(FlexColumn)<{ $hasCheckbox: boolean }>`
   justify-content: ${({ $hasCheckbox }) =>
     $hasCheckbox ? 'flex-start ' : 'space-between'};
-  margin-left: ${({ $hasCheckbox }) => ($hasCheckbox ? '18rem' : '0rem')};
+  margin-left: ${({ $hasCheckbox }) => ($hasCheckbox ? '18px' : '0px')};
 `;
 
 const ButtonWrapper = styled(FlexRowCenterAll)``;
 
 const ShadowWrapper2 = styled.div<{ $hasCheckbox: boolean }>`
-  width: 300rem;
+  width: 300px;
   display: flex;
-  border-radius: 40rem;
+  border-radius: 40px;
   background: white;
-  box-shadow: 0rem 4rem 10rem 0rem rgba(0, 0, 0, 0.1);
-  padding: 50rem 25rem 0rem 37rem;
-  height: 175rem;
-  gap: 30rem;
-  height: ${({ $hasCheckbox }) => ($hasCheckbox ? '110rem' : '160rem')};
-  padding: 40rem 30rem 20rem 30rem;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 50px 25px 0px 37px;
+  height: 175px;
+  gap: 30px;
+  height: ${({ $hasCheckbox }) => ($hasCheckbox ? '110px' : '160px')};
+  padding: 40px 30px 20px 30px;
   ${({ $hasCheckbox }) =>
     $hasCheckbox &&
-    'gap:0rem; align-items: center;  justify-content: flex-start; padding: 0 0 0 25rem;'}
+    'gap:0px align-items: center;  justify-content: flex-start; padding: 0 0 0 25px'}
 `;
 
 export const StyledCheckbox = styled.button`
-  border-radius: 4rem;
-  border: 1rem solid ${COLORS.GRAY_CD};
-  width: 21rem;
-  height: 21rem;
-  margin-right: 15rem;
+  border-radius: 4px;
+  border: 1px solid ${COLORS.GRAY_CD};
+  width: 21px;
+  height: 21px;
+  margin-right: 15px;
   position: relative;
 `;

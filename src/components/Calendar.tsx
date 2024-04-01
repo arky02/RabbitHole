@@ -18,19 +18,19 @@ function CalendarSection() {
 export default CalendarSection;
 
 const Wrapper = styled.div`
-  width: 600rem;
+  width: 600px;
   height: fit-content;
   max-width: 100%;
   font-weight: 600;
   background: #ffff;
-  border: 1rem solid #eeeeee;
+  border: 1px solid #eeeeee;
   line-height: 1.125em;
-  border-radius: 10rem;
-  box-shadow: 0rem 0rem 10rem #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #f4f4f4;
   text-align: center;
   display: flex;
   align-items: center;
-  padding: 0rem 0 20rem 0;
+  padding: 0px 0 20px 0;
 
   .react-calendar__navigation__label__labelText {
     font-weight: 700;
@@ -38,17 +38,17 @@ const Wrapper = styled.div`
   }
 
   .react-calendar {
-    margin: 10rem;
+    margin: 10px;
   }
 
   .react-calendar__tile {
-    margin: 10rem 10rem 10rem 0;
+    margin: 10px 10px 10px 0;
   }
 
   .react-calendar__navigation {
     font-weight: 700;
-    margin-bottom: 40rem;
-    margin-top: 20rem;
+    margin-bottom: 40px;
+    margin-top: 20px;
   }
 
   .react-calendar__tile--now {

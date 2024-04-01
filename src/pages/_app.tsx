@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
           }}
           toastOptions={{
             style: {
-              borderRadius: '999rem',
+              borderRadius: '999px',
             },
             // icon: '🐰',
           }}

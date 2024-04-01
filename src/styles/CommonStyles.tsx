@@ -17,13 +17,13 @@ export const FlexRowCenterAll = styled.div`
 `;
 
 export const ShadowDiv = styled.div`
-  box-shadow: 0rem 0rem 10rem 0rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   width: fit-content;
   height: fit-content;
 `;
 
 export const Border20GrayD9Div = styled.div`
-  border-radius: 20rem;
-  border: 1rem solid #d9d9d9;
+  border-radius: 20px;
+  border: 1px solid #d9d9d9;
   background: #fff;
 `;

@@ -1,10 +1,13 @@
 import Button from '@/components/Buttons/Button';
 import { FlexColumnCenterAll } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
+import usePrevPath from '@/zustand/usePrevPath';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 function NotFound() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('404 페이지');
   const router = useRouter();
   return (
     <Wrapper>
@@ -36,11 +39,11 @@ const MainText = styled.h1`
 const Desc = styled.h5`
   color: ${COLORS.GRAY_66};
   font-size: 25rem;
-  margin-bottom: 35rem;
+  margin-bottom: 35px;
 `;
 
 const Rabbit = styled.h5`
   position: absolute;
   font-size: 230rem;
-  top: 240rem;
+  top: 240px;
 `;

@@ -15,6 +15,7 @@ import { GetServerSidePropsContext } from 'next';
 import toast from 'react-hot-toast';
 import { request } from '@/apis/axios';
 import { useRouter } from 'next/router';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -39,6 +40,8 @@ export const selectClassSideBarContent = [
 ];
 
 function selectClass() {
+  // const { setPrevPath } = usePrevPath();
+  // setPrevPath('수업 실행');
   const { userToken } = useManageUserToken();
   const classInfos = useQuery(getClassInfo(userToken)).data?.data.classes;
   const router = useRouter();
@@ -96,12 +99,12 @@ export const Section = styled.div`
 `;
 
 export const ContentWrapper = styled(FlexColumn)`
-  margin: 220rem 0rem 0rem 268rem;
-  gap: 30rem;
+  margin: 220px 0px 0px 268px;
+  gap: 30px;
 `;
 
 export const ClassWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30rem;
+  gap: 30px;
 `;

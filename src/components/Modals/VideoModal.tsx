@@ -47,7 +47,7 @@ export default forwardRef(function VideoModal(
                 style={{
                   fontSize: 14,
                   color: COLORS.GRAY_66,
-                  padding: '9rem 20rem',
+                  padding: '9px 20px',
                 }}
               />
               <button onClick={onCancelClick}>
@@ -62,7 +62,7 @@ export default forwardRef(function VideoModal(
             style={{
               fontSize: 14,
               color: COLORS.GRAY_66,
-              padding: '9rem 20rem',
+              padding: '9px 20px',
             }}
           ></Button>
           <StyledVideo ref={ref} playsInline autoPlay muted></StyledVideo>
@@ -86,18 +86,18 @@ const StyledModalBackdrop = styled.div`
 `;
 
 const StyledModalContainer = styled(FlexColumnCenterAll)`
-  width: 859rem;
-  height: 560rem;
+  width: 859px;
+  height: 560px;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
   background-color: white;
-  border-radius: 20rem;
-  box-shadow: 0 2pc 12rem 0rem rgba(0, 0, 0, 0.08);
-  padding: 55rem 80rem 45rem;
-  gap: 25rem;
+  border-radius: 20px;
+  box-shadow: 0 2pc 12px 0px rgba(0, 0, 0, 0.08);
+  padding: 55px 80px 45px;
+  gap: 25px;
 `;
 
 const ContentText = styled.h5`
@@ -129,7 +129,7 @@ const Desc = styled.h5`
 
 const Wrapper = styled.div`
   display: flex;
-  gap: 20rem;
+  gap: 20px;
   align-items: center;
 `;
 

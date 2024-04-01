@@ -26,8 +26,8 @@ export default StudentAlertPopup;
 function ButtonWrapper({ btnRef, setIsOpen }: ButtonWrapperProps) {
   return (
     <button ref={btnRef} onClick={() => setIsOpen((prev) => !prev)}>
-      <SmallHoverButton style={{ marginRight: '25rem' }} useForDiv>
-        <Image src={bell} alt="bell" style={{ marginRight: '6rem' }} />
+      <SmallHoverButton style={{ marginRight: '25px' }} useForDiv>
+        <Image src={bell} alt="bell" style={{ marginRight: '6px' }} />
         학생 알림
       </SmallHoverButton>
     </button>
@@ -36,12 +36,12 @@ function ButtonWrapper({ btnRef, setIsOpen }: ButtonWrapperProps) {
 
 const PopupWrapper = styled.div`
   position: absolute;
-  top: 70rem;
-  right: 230rem;
-  width: 200rem;
-  height: 200rem;
-  border-radius: 20rem;
+  top: 70px
+  right: 230px
+  width: 200px
+  height: 200px
+  border-radius: 20px
   background: white;
-  box-shadow: 0rem 0rem 20rem 0rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   z-index: 10;
 `;

@@ -8,7 +8,7 @@ function TodaysClass() {
   return (
     <Wrapper>
       <LeftContainer>
-        <ClassTimeText>1교시</ClassTimeText>
+        <ClassTimeText>-</ClassTimeText>
         <TimeDescText>00:00 - 00:00</TimeDescText>
       </LeftContainer>
       <Image src={Stroke} alt="separator" />
@@ -22,10 +22,10 @@ export default TodaysClass;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 14rem;
-  padding: 15rem 22rem;
-  border-radius: 15rem;
-  border: 1rem solid ${COLORS.GRAY_CD};
+  gap: 14px;
+  padding: 15px 22px;
+  border-radius: 15px;
+  border: 1px solid ${COLORS.GRAY_CD};
   background: #fff;
 `;
 

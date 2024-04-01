@@ -45,10 +45,10 @@ function VideoContainer({
 export default VideoContainer;
 
 const Wrapper = styled.video`
-  border: 1rem solid ${COLORS.GRAY_CD};
-  border-radius: 20rem;
-  width: 250rem;
-  height: 180rem;
+  border: 1px solid ${COLORS.GRAY_CD};
+  border-radius: 20px;
+  width: 250px;
+  height: 180px;
   position: relative;
 
   &:hover {
@@ -60,7 +60,7 @@ const Wrapper = styled.video`
 const TopContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 15rem;
+  padding: 15px;
   z-index: 99;
 `;
 

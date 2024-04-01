@@ -58,16 +58,16 @@ const Wrapper = styled.div`
 `;
 
 const DropdownButton = styled.button`
-  border-radius: 10rem;
-  border: 1rem solid #cdcdcd;
+  border-radius: 10px;
+  border: 1px solid #cdcdcd;
   background: white;
   color: #000;
   font-size: 14rem;
   font-weight: 600;
-  width: 70rem;
-  height: 40rem;
+  width: 70px;
+  height: 40px;
   flex-shrink: 0;
-  padding: 0 8rem;
+  padding: 0 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,18 +81,18 @@ const StyledContainer = styled.div<{
   position: absolute;
   height: auto;
   background-color: white;
-  top: 45rem;
+  top: 45px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 6rem;
+  border-radius: 6px;
   z-index: 10;
   display: flex;
-  width: 70rem;
-  padding: 9rem 8rem;
-  gap: 5rem;
-  border-radius: 10rem;
-  border: 1rem solid #cdcdcd;
+  width: 70px;
+  padding: 9px 8px;
+  gap: 5px;
+  border-radius: 10px;
+  border: 1px solid #cdcdcd;
 
   ul {
     width: 100%;
@@ -104,8 +104,8 @@ const StyledContainer = styled.div<{
     display: flex;
     align-items: center;
 
-    padding: 3rem 9rem;
-    border-radius: 5rem;
+    padding: 3px 9px;
+    border-radius: 5px;
 
     &:hover {
       background-color: #c8abee74;
@@ -124,5 +124,5 @@ const StyledLink = styled.button`
 `;
 
 const StyledImage = styled(Image)`
-  margin-right: 11rem;
+  margin-right: 11px;
 `;
