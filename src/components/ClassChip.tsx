@@ -46,7 +46,9 @@ function ClassChip({
             </button>
           </ButtonWrapper>
         ) : (
-          <GrayText $hasCheckbox={hasCheckbox}>실행하러 가기</GrayText>
+          <GrayText $hasCheckbox={hasCheckbox} style={{ marginTop: 5 }}>
+            최종 수정 2024.0.0 13:00
+          </GrayText>
         )}
       </ColumnWrapper>
     </ShadowWrapper2>
@@ -82,14 +84,15 @@ const ShadowWrapper2 = styled.div<{ $hasCheckbox: boolean }>`
   border-radius: 40px;
   background: white;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
-  padding: 50px 25px 0px 37px;
-  height: 175px;
+  /* padding: 50px 25px 0px 37px; */
+  align-items: ${({ $hasCheckbox }) =>
+    $hasCheckbox ? 'center' : 'flex-start'};
   gap: 30px;
-  height: ${({ $hasCheckbox }) => ($hasCheckbox ? '110px' : '160px')};
-  padding: 40px 30px 20px 30px;
+  height: ${({ $hasCheckbox }) => ($hasCheckbox ? '110px' : '150px')};
+  padding: 45px 35px;
   ${({ $hasCheckbox }) =>
     $hasCheckbox &&
-    'gap:0px align-items: center;  justify-content: flex-start; padding: 0 0 0 25px'}
+    'gap:0px; align-items: center;  justify-content: flex-start; padding: 0 0 0 25px'}
 `;
 
 export const StyledCheckbox = styled.button`
