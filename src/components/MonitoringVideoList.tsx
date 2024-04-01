@@ -56,9 +56,6 @@ function MonitoringVideoList() {
 
       socket.current = io('https://api.rabbitholecompany.com/', {
         reconnectionDelayMax: 10000,
-        cors: {
-          origin: '*',
-        },
         query: {
           token: token,
         },
