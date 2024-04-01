@@ -16,7 +16,7 @@ function StudentAlertPopup() {
   return (
     <div>
       <ButtonWrapper setIsOpen={setIsOpen} btnRef={buttonRef}></ButtonWrapper>
-      {isOpen && <PopupWrapper ref={popupRef}></PopupWrapper>}
+      {isOpen && <PopupWrapper ref={popupRef}>구현 중 입니다.</PopupWrapper>}
     </div>
   );
 }
@@ -44,4 +44,7 @@ const PopupWrapper = styled.div`
   background: white;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

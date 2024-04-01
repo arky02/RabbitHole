@@ -14,13 +14,14 @@ import StudentAlertPopup from './Popups/StudentAlertPopup';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PageTitle from './PageTItle';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import WhiteBook from '@/public/icon/whiteBook.svg';
 import WhiteNewspaper from '@/public/icon/whiteNewspaper.svg';
 import WhiteBookWithPen from '@/public/icon/whiteBookwithpencil.svg';
 import WhiteSetting from '@/public/icon/whiteSetting.svg';
 import WhitePerson from '@/public/icon/whitePerson.svg';
 import usePrevPath from '@/zustand/usePrevPath';
+import Modal from './Modals/Modal';
 
 function Nav({ hasSideBar = false }: { hasSideBar?: boolean }) {
   const router = useRouter();
@@ -77,6 +78,7 @@ function OptionButtons({
   const router = useRouter();
   const { setPrevPath } = usePrevPath();
   const [isBtnHovered, setIsBtnHovered] = useState([0, 0, 0, 0, 0]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <ButtonWrapper $hasSideBar={hasSideBar}>
@@ -129,6 +131,7 @@ function OptionButtons({
       <Button
         type="Options"
         text="성적 관리"
+        onClick={() => setIsModalOpen(true)}
         onMouseEnter={() => setIsBtnHovered([0, 0, 1, 0, 0])}
         onMouseLeave={() => setIsBtnHovered([0, 0, 0, 0, 0])}
       >
@@ -154,6 +157,7 @@ function OptionButtons({
       <Button
         type="Options"
         text="기타 설정"
+        onClick={() => setIsModalOpen(true)}
         onMouseEnter={() => setIsBtnHovered([0, 0, 0, 0, 1])}
         onMouseLeave={() => setIsBtnHovered([0, 0, 0, 0, 0])}
       >
@@ -163,6 +167,13 @@ function OptionButtons({
           style={{ marginRight: '10px' }}
         />
       </Button>
+      <Modal
+        content="구현 중인 페이지입니다."
+        btnText={['확인']}
+        isOpen={isModalOpen}
+        onCancelClick={() => setIsModalOpen(false)}
+        onOkClick={() => setIsModalOpen(false)}
+      ></Modal>
     </ButtonWrapper>
   );
 }

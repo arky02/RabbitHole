@@ -4,12 +4,13 @@ import DefaultProfile from '@/public/icon/defaultProfileImgIcon.svg';
 import DropdownTriBtn from '@/public/icon/downTriArrow.svg';
 import CloseDropdownTriBtn from '@/public/icon/upTriArrow.svg';
 import useMenuPopup from '@/hooks/useMenuPopup';
-import { Dispatch, MutableRefObject, SetStateAction } from 'react';
+import { Dispatch, MutableRefObject, SetStateAction, useState } from 'react';
 import { COLORS } from '@/styles/palatte';
 import { FlexColumn } from '@/styles/CommonStyles';
 import SmallHoverButton from '../Buttons/SmallHoverButton';
 import { useRouter } from 'next/router';
 import useManageUserToken from '@/hooks/useManageUserToken';
+import Modal from '../Modals/Modal';
 
 interface MenuProps {
   userName: string;
@@ -74,6 +75,7 @@ export default UserMenuPopup;
 function PopupMenu({ popupRef, btnRef, isOpen, setIsOpen }: PopupMenuProps) {
   const router = useRouter();
   const { removeToken } = useManageUserToken();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleLogout = () => {
     removeToken({ redirectUri: '/login' });
@@ -99,14 +101,16 @@ function PopupMenu({ popupRef, btnRef, isOpen, setIsOpen }: PopupMenuProps) {
           <OptionsMenuWrapper>
             <OptionWrapper>
               <Description>옵션</Description>
-              <Option>도움말</Option>
+              <Option onClick={() => setIsModalOpen(true)}>도움말</Option>
               <Option onClick={() => router.push('/')}>
                 교사 홈으로 돌아가기
               </Option>
             </OptionWrapper>
             <OptionWrapper>
               <Description>내 계정</Description>
-              <Option>기본정보 변경하기</Option>
+              <Option onClick={() => setIsModalOpen(true)}>
+                기본정보 변경하기
+              </Option>
               <Option onClick={() => handleLogout()}>로그아웃</Option>
             </OptionWrapper>
           </OptionsMenuWrapper>
@@ -126,6 +130,13 @@ function PopupMenu({ popupRef, btnRef, isOpen, setIsOpen }: PopupMenuProps) {
             </SmallHoverButton>
           </CloseBtnWrapper>
         </PopupMenuWrapper>
+        <Modal
+          content="구현 중인 페이지입니다."
+          btnText={['확인']}
+          isOpen={isModalOpen}
+          onCancelClick={() => setIsModalOpen(false)}
+          onOkClick={() => setIsModalOpen(false)}
+        ></Modal>
       </div>
     )
   );
