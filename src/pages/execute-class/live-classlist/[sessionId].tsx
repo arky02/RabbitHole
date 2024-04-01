@@ -121,7 +121,7 @@ function VideoListContainer() {
               1학년 영어 A분반
             </span>
           </Button>
-          <Button
+          {/* <Button
             type="GrayOutline"
             onClick={() =>
               setCheckedVideoList((prev) =>
@@ -130,7 +130,7 @@ function VideoListContainer() {
             }
           >
             <GrayText>전체선택</GrayText>
-          </Button>
+          </Button> */}
         </ButtonHeader>
         <MonitoringVideoList />
         {/* 아래는 디자인만 구현 된 코드 - 삭제*/}
@@ -157,10 +157,10 @@ function VideoListContainer() {
 }
 
 function BottomLiveInfoTab() {
-  const [isLessonPopupOpen, setIsLessonPopupOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <LiveInfoTabWrapper>
-      <LessonInfoDiv onClick={() => setIsLessonPopupOpen(true)}>
+      <LessonInfoDiv onClick={() => setIsModalOpen(true)}>
         <Image src={Docs} width={17} height={22} alt="수업안" />
         1학년 심화 과정 수업안
       </LessonInfoDiv>
@@ -169,22 +169,27 @@ function BottomLiveInfoTab() {
         text="전송"
         style={{ height: 40, fontSize: '14rem', marginRight: '45px' }}
       ></Button>
-      <Button type="GrayOutline" style={{ borderRadius: '10px' }}>
+      <Button
+        type="GrayOutline"
+        style={{ borderRadius: '10px' }}
+        onClick={() => setIsModalOpen(true)}
+      >
         <Image src={Pause} alt="pause" />
       </Button>
       <Button
         type="GrayOutline"
         style={{ color: COLORS.RED, height: 38, borderRadius: '10px' }}
+        onClick={() => setIsModalOpen(true)}
       >
         <StopDiv />
       </Button>
       <Modal
-        content="전송할 수업안 고르는 모달"
+        content="개발 중인 기능입니다."
         btnText={['확인']}
-        isOpen={isLessonPopupOpen}
-        onCancelClick={() => setIsLessonPopupOpen(false)}
+        isOpen={isModalOpen}
+        onCancelClick={() => setIsModalOpen(false)}
         onOkClick={() => {
-          setIsLessonPopupOpen(false);
+          setIsModalOpen(false);
         }}
       ></Modal>
     </LiveInfoTabWrapper>
