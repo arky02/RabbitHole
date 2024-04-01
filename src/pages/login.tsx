@@ -151,7 +151,8 @@ const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  position: relative;
 `;
 
 const GrayText = styled.h5`
@@ -164,6 +165,8 @@ const GrayText = styled.h5`
 
 const ErrorText = styled.h5`
   color: ${COLORS.RED};
-  font-size: 14rem;
-  margin-left: 15px;
+  font-size: 13rem;
+  top: 120px;
+  left: 10px;
+  position: absolute;
 `;
