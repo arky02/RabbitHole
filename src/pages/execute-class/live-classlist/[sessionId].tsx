@@ -129,6 +129,7 @@ function VideoListContainer() {
           </Button>
         </ButtonHeader>
         <MonitoringVideoList />
+        {/* 아래는 디자인만 구현 된 코드 - 삭제*/}
         {/* <VideoWrapper>
           {videoIdList.map((videoEl, idx) => (
             <VideoContainer
@@ -192,7 +193,7 @@ const VideoListWrapper = styled.div`
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15) inset;
   padding: 20px 30px;
   height: 500px;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 const ButtonContainer = styled.div`
