@@ -18,6 +18,7 @@ import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
 import usePrevPath from '@/zustand/usePrevPath';
+import Modal from '@/components/Modals/Modal';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -41,8 +42,12 @@ function createClass() {
   const [selectedGrade, setSelectedGrade] = useState('');
   const [selectedClass, setSelectedClass] = useState('');
   const [className, setClassName] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => setPrevPath('학생 관리'), []);
+  useEffect(() => {
+    setPrevPath('학생 관리');
+    setIsModalOpen(true);
+  }, []);
 
   return (
     <Section2>
@@ -98,6 +103,13 @@ function createClass() {
           <StudentList></StudentList>
         </ShadowWrapper>
       </ContentWrapper2>
+      <Modal
+        content="구현 중인 페이지입니다."
+        btnText={['확인']}
+        isOpen={isModalOpen}
+        onCancelClick={() => setIsModalOpen(false)}
+        onOkClick={() => setIsModalOpen(false)}
+      ></Modal>
     </Section2>
   );
 }
