@@ -16,6 +16,7 @@ import toast from 'react-hot-toast';
 import { request } from '@/apis/axios';
 import { useRouter } from 'next/router';
 import usePrevPath from '@/zustand/usePrevPath';
+import { useEffect } from 'react';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -40,8 +41,7 @@ export const selectClassSideBarContent = [
 ];
 
 function selectClass() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('수업 실행');
+  const { setPrevPath } = usePrevPath();
   const { userToken } = useManageUserToken();
   const classInfos = useQuery(getClassInfo(userToken)).data?.data.classes;
   const router = useRouter();
@@ -66,6 +66,8 @@ function selectClass() {
       console.log(error);
     }
   };
+
+  useEffect(() => setPrevPath('수업 실행'), []);
 
   return (
     <Section>

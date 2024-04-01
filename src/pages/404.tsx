@@ -3,12 +3,15 @@ import { FlexColumnCenterAll } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
 import usePrevPath from '@/zustand/usePrevPath';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 function NotFound() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('404 페이지');
+  const { setPrevPath } = usePrevPath();
   const router = useRouter();
+
+  useEffect(() => setPrevPath('404'), []);
+
   return (
     <Wrapper>
       <MainText>

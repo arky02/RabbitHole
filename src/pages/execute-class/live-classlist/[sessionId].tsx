@@ -14,7 +14,7 @@ import SideBar from '@/components/SideBar';
 import Docs from '@/public/icon/docs.svg';
 import Pause from '@/public/icon/pause.svg';
 import VideoContainer from '@/components/VideoContainer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import VideoModal from '@/components/Modals/VideoModal';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
@@ -55,8 +55,8 @@ const videoIdList = [
 ];
 
 function LiveClassListSection() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('수업 실행');
+  const { setPrevPath } = usePrevPath();
+  useEffect(() => setPrevPath('수업 실행'), []);
   return (
     <Section>
       <Nav hasSideBar />

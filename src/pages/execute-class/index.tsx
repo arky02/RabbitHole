@@ -9,6 +9,7 @@ import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
 import usePrevPath from '@/zustand/usePrevPath';
+import { useEffect } from 'react';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -26,8 +27,9 @@ export const getServerSideProps = async (
 };
 
 function executeClass() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('수업 실행');
+  const { setPrevPath } = usePrevPath();
+
+  useEffect(() => setPrevPath('수업 실행'), []);
   return (
     <Section>
       <Nav />

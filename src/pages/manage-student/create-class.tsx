@@ -11,7 +11,7 @@ import { manageClassSidebarContent } from './classlist';
 import { COLORS } from '@/styles/palatte';
 import Input from '@/components/Input';
 import Dropdown from '@/components/Dropdown';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@/components/Buttons/Button';
 import StudentList from '@/components/StudentList';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
@@ -37,11 +37,13 @@ export const getServerSideProps = async (
 const GRADE = [1, 2, 3, 4, 5, 6];
 
 function createClass() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('학생 관리');
+  const { setPrevPath } = usePrevPath();
   const [selectedGrade, setSelectedGrade] = useState('');
   const [selectedClass, setSelectedClass] = useState('');
   const [className, setClassName] = useState('');
+
+  useEffect(() => setPrevPath('학생 관리'), []);
+
   return (
     <Section2>
       <Nav hasSideBar />

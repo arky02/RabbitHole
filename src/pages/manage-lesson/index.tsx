@@ -28,12 +28,12 @@ export const getServerSideProps = async (
 };
 
 function manageLesson() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('수업안 관리');
+  const { setPrevPath } = usePrevPath();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setIsModalOpen(true);
+    setPrevPath('수업안 관리');
   }, []);
   return (
     <Section>

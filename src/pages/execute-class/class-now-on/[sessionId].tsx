@@ -29,6 +29,7 @@ import {
 import { getStudentInSession } from '@/apis/capsuleQuery';
 import { studentListRes } from '@/server.types';
 import usePrevPath from '@/zustand/usePrevPath';
+import { useEffect } from 'react';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -46,8 +47,8 @@ export const getServerSideProps = async (
 };
 
 function classNowOn() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('수업 실행');
+  const { setPrevPath } = usePrevPath();
+
   const queryClient = useQueryClient();
   const router = useRouter();
   const { sessionId, key: sessionKey } = router.query;
@@ -105,6 +106,8 @@ function classNowOn() {
       console.log(error);
     }
   };
+
+  useEffect(() => setPrevPath('수업 실행'), []);
 
   return (
     <Section>

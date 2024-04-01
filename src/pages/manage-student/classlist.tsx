@@ -23,6 +23,7 @@ import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
 import usePrevPath from '@/zustand/usePrevPath';
+import { useEffect } from 'react';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -54,13 +55,12 @@ export const manageClassSidebarContent = [
 ];
 
 function manageClassList() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('학생 관리');
-
+  const router = useRouter();
+  const { setPrevPath } = usePrevPath();
   const { userToken } = useManageUserToken();
   const classInfos = useQuery(getClassInfo(userToken)).data?.data.classes;
 
-  const router = useRouter();
+  useEffect(() => setPrevPath('학생 관리'), []);
 
   return (
     <Section>

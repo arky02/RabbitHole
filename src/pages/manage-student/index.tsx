@@ -11,6 +11,7 @@ import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
 import usePrevPath from '@/zustand/usePrevPath';
+import { useEffect } from 'react';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -28,8 +29,9 @@ export const getServerSideProps = async (
 };
 
 function manageStudent() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('학생 관리');
+  const { setPrevPath } = usePrevPath();
+
+  useEffect(() => setPrevPath('학생 관리'), []);
   return (
     <Section>
       <Nav />

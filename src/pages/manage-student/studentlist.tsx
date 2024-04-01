@@ -27,12 +27,12 @@ export const getServerSideProps = async (
 };
 
 function manageMyStudentList() {
-  // const { setPrevPath } = usePrevPath();
-  // setPrevPath('학생 관리');
+  const { setPrevPath } = usePrevPath();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setIsModalOpen(true);
+    useEffect(() => setPrevPath('학생 관리'), []);
   }, []);
   return (
     <Section>

@@ -6,7 +6,7 @@ interface Props {
 }
 
 const usePrevPath = create<Props>((set) => ({
-  prevPath: '/',
+  prevPath: '메인',
   setPrevPath: (value: string) => set({ prevPath: value }),
 }));
 

@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import { isLoggedIn } from '@/utils/validateRedirection';
 import { GetServerSidePropsContext } from 'next';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
+import usePrevPath from '@/zustand/usePrevPath';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -42,10 +43,11 @@ export default function Home() {
 
 function GoToRecentBtn() {
   const router = useRouter();
+  const { prevPath } = usePrevPath();
   return (
     <Button
       type="WhiteShadow"
-      text="최근 사용 페이지 바로가기"
+      text={`${prevPath} 페이지 바로가기`}
       style={{ position: 'fixed', top: '186px' }}
       onClick={() => router.back()}
     >
