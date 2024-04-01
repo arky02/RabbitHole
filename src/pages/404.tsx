@@ -11,8 +11,11 @@ function NotFound() {
   const router = useRouter();
   return (
     <Wrapper>
-      <MainText>4..4</MainText>
-      <Rabbit>🐰</Rabbit>
+      <MainText>
+        4o4
+        <Rabbit>🐰</Rabbit>
+      </MainText>
+
       <Desc>페이지가 존재하지 않습니다!</Desc>
       <Button
         type="Options"
@@ -27,13 +30,13 @@ export default NotFound;
 
 const Wrapper = styled(FlexColumnCenterAll)`
   height: 100vh;
-  position: relative;
 `;
 
-const MainText = styled.h1`
+const MainText = styled.div`
   font-size: 255rem;
   font-weight: 700;
   color: #d86bff;
+  position: relative;
 `;
 
 const Desc = styled.h5`
@@ -45,5 +48,6 @@ const Desc = styled.h5`
 const Rabbit = styled.h5`
   position: absolute;
   font-size: 230rem;
-  top: 240px;
+  top: 7px;
+  left: 120px;
 `;
