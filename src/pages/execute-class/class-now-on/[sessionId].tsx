@@ -127,7 +127,7 @@ function classNowOn() {
             onClick={requestSessionStart}
           />
         </Wrapper>
-        <BoldText>접속 학생</BoldText>
+        {/* <BoldText>접속 학생</BoldText>
         <StudentListWrapper>
           {studentsInSession?.length !== 0 ? (
             studentsInSession?.map((student: studentListRes) => (
@@ -152,7 +152,7 @@ function classNowOn() {
           ) : (
             <span>접속한 학생이 없습니다.</span>
           )}
-        </StudentListWrapper>
+        </StudentListWrapper> */}
       </ContentWrapper>
     </Section>
   );
