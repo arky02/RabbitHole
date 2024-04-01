@@ -1,6 +1,7 @@
 import { FlexColumn } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -8,12 +9,20 @@ interface MenuChipProps {
   children: ReactNode;
   title: string;
   desc: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
 }
 
-function ShortcutMenuChip({ children, title, desc, href }: MenuChipProps) {
+function ShortcutMenuChip({
+  children,
+  title,
+  desc,
+  href = '',
+  onClick = () => {},
+}: MenuChipProps) {
+  const router = useRouter();
   return (
-    <ShadowWrapper href={href}>
+    <ShadowWrapper onClick={href ? () => router.push(href) : onClick}>
       {children}
       <TextWrapper>
         <Title>{title}</Title>
@@ -25,7 +34,7 @@ function ShortcutMenuChip({ children, title, desc, href }: MenuChipProps) {
 
 export default ShortcutMenuChip;
 
-export const ShadowWrapper = styled(Link)`
+export const ShadowWrapper = styled.button`
   display: flex;
   border-radius: 40px;
   background: white;
@@ -39,6 +48,7 @@ export const ShadowWrapper = styled(Link)`
 const TextWrapper = styled(FlexColumn)`
   gap: 12px;
   margin-top: -15px;
+  align-items: flex-start;
 `;
 
 const Title = styled.h1`
@@ -52,4 +62,6 @@ const Description = styled.h5`
   font-size: 14rem;
   font-weight: 600;
   line-height: 150%;
+  text-align: start;
+  width: 166px;
 `;
