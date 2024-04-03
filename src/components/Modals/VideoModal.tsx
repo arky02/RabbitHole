@@ -12,11 +12,11 @@ import { Student } from '../MonitoringVideoList';
 import { ModalProps } from '@/client.types';
 
 interface VideoModalProps extends ModalProps {
-  studentId: number | null;
+  studentName: string | null;
 }
 
 export default forwardRef(function VideoModal(
-  { isOpen = true, onOkClick, onCancelClick, studentId }: VideoModalProps,
+  { isOpen = true, onOkClick, onCancelClick, studentName }: VideoModalProps,
   ref: ForwardedRef<HTMLVideoElement>,
 ) {
   if (typeof document === 'undefined') return;
@@ -36,7 +36,7 @@ export default forwardRef(function VideoModal(
                 alt="profile"
               ></Image>
               <TextWrapper>
-                <Name>{`학생 아이디: ${studentId ?? '-'}`}</Name>
+                <Name>{`${studentName ?? '-'}`}</Name>
                 {/* <Desc>1학년 ㅣ 732801011</Desc> */}
               </TextWrapper>
             </Wrapper>
