@@ -59,7 +59,7 @@ function selectClass() {
       if (res.status === 201) {
         toast.success('수업 세션 생성 완료');
         router.push(
-          `/execute-class/class-now-on/${res.data.session_id}?key=${res.data.session_key}`,
+          `/execute-class/class-now-on/47?key=${res.data.session_key}`,
         );
       }
     } catch (error) {
