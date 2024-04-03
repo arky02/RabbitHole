@@ -1,4 +1,4 @@
-import { FlexColumn } from '@/styles/CommonStyles';
+import { FlexColumn, FlexColumnCenterAll } from '@/styles/CommonStyles';
 import { COLORS } from '@/styles/palatte';
 import { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import Button from './Buttons/Button';
 import useManageUserToken from '@/hooks/useManageUserToken';
 import VideoModal from './Modals/VideoModal';
+import { useQuery } from '@tanstack/react-query';
+import { getStudentInfo } from '@/apis/capsuleQuery';
 
 export interface Student {
   peerConnection: RTCPeerConnection | null;
@@ -287,12 +289,6 @@ function MonitoringVideoList() {
 
 export default MonitoringVideoList;
 
-// 214231		: 5
-// 11321 		: 6
-// 1234		: 8
-// 123432		: 9
-// 214231		: 10
-
 const Video = ({
   stream,
   studentId,
@@ -302,7 +298,13 @@ const Video = ({
 }) => {
   const ref = useRef<HTMLVideoElement | null>();
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  console.log(studentId);
+
+  const { userToken } = useManageUserToken();
+
+  const studentInfo = useQuery(getStudentInfo(userToken, studentId!)).data
+    ?.data;
+
+  console.log(studentInfo);
 
   useEffect(() => {
     if (ref.current) {
@@ -312,21 +314,22 @@ const Video = ({
     [];
 
   return (
-    <>
+    <FlexColumnCenterAll>
       <VideoWrapper onClick={() => setIsVideoModalOpen(true)}>
         {/* @ts-ignore */}
         <StyledVideo ref={ref} playsInline autoPlay muted></StyledVideo>
         {/* <VideoStyleWrapper /> */}
       </VideoWrapper>
+      {ref && <Text>{studentInfo?.name}</Text>}
       <VideoModal
         /* @ts-ignore */
         ref={ref}
         isOpen={isVideoModalOpen}
         onOkClick={() => setIsVideoModalOpen(false)}
         onCancelClick={() => setIsVideoModalOpen(false)}
-        studentId={studentId}
+        studentName={studentInfo?.name}
       ></VideoModal>
-    </>
+    </FlexColumnCenterAll>
   );
 };
 
@@ -334,6 +337,7 @@ const StyledVideo = styled.video`
   width: auto;
   height: 100%;
 `;
+
 const VideoWrapper = styled.div`
   width: 250px;
   position: relative;
@@ -372,3 +376,16 @@ const StateChip = styled(Button)`
   cursor: none;
   z-index: 99;
 `;
+
+const Text = styled.h5`
+  color: #666;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 10px;
+`;
+
+// 214231		: 5
+// 11321 		: 6
+// 1234		: 8
+// 123432		: 9
+// 214231		: 10
