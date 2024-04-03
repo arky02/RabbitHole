@@ -43,6 +43,8 @@ https://github.com/arky02/RabbitHole/assets/46954114/9ab57887-0e24-404d-b4ca-e22
 
 ## 메인 화면
 <img width="1680" alt="Screen Shot 2024-03-29 at 12 35 58 AM" src="https://github.com/arky02/RabbitHole/assets/46954114/83f06a6b-ba3b-4359-ba21-55c8b0fada77">
+<img width="1680" alt="Screenshot 2024-04-04 at 2 05 40 AM" src="https://github.com/arky02/RabbitHole/assets/46954114/68eeb5ca-4be9-477f-9cf9-59d5a48f2925">
+
 
 </br>
 
@@ -54,4 +56,6 @@ https://github.com/arky02/RabbitHole/assets/46954114/9ab57887-0e24-404d-b4ca-e22
 ## 기타 페이지 디자인
 <img width="1680" alt="Screen Shot 2024-03-29 at 12 40 45 AM" src="https://github.com/arky02/RabbitHole/assets/46954114/8d4e6ae7-b8d9-47c9-b345-84613e693f15">
 </br>
-<img width="1674" alt="Screenshot 2024-04-01 at 7 01 38 PM" src="https://github.com/arky02/RabbitHole/assets/46954114/c697c49a-0edd-4ada-8a3f-a83d185b3e91">
+<img width="1680" alt="Screenshot 2024-04-04 at 2 03 08 AM" src="https://github.com/arky02/RabbitHole/assets/46954114/643b8a13-5525-43a2-be26-fba66950eb9b">
+</br>
+<img width="1680" alt="Screenshot 2024-04-04 at 2 05 29 AM" src="https://github.com/arky02/RabbitHole/assets/46954114/9cf35df0-313f-45a9-9e77-7070e811389f">
