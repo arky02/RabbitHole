@@ -1,4 +1,8 @@
-# RabbitHole - VR LMS 시스템
+# RabbitHole 🐰 - VR LMS 시스템
+
+배포 URL : https://lms.rabbitholecompany.com
+
+</br>
 
 LMS는 학생들의 VR학습을 보조하고, 학습을 진행할 때, 교사가 개입할 수 있게 하는 **관리 및 지도**의 기능,
 
@@ -49,3 +53,5 @@ https://github.com/arky02/RabbitHole/assets/46954114/9ab57887-0e24-404d-b4ca-e22
 
 ## 기타 페이지 디자인
 <img width="1680" alt="Screen Shot 2024-03-29 at 12 40 45 AM" src="https://github.com/arky02/RabbitHole/assets/46954114/8d4e6ae7-b8d9-47c9-b345-84613e693f15">
+</br>
+<img width="1674" alt="Screenshot 2024-04-01 at 7 01 38 PM" src="https://github.com/arky02/RabbitHole/assets/46954114/c697c49a-0edd-4ada-8a3f-a83d185b3e91">
