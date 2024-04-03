@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Recording from '@/public/icon/recording.svg';
 import { COLORS } from '@/styles/palatte';
-import {
+import selectClass, {
   ContentWrapper,
   Section,
   selectClassSideBarContent,
@@ -14,7 +14,7 @@ import SideBar from '@/components/SideBar';
 import Docs from '@/public/icon/docs.svg';
 import Pause from '@/public/icon/pause.svg';
 import VideoContainer from '@/components/VideoContainer';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import VideoModal from '@/components/Modals/VideoModal';
 import { getAccessTokenFromCookie } from '@/utils/getTokenFromCookie';
 import { isLoggedIn } from '@/utils/validateRedirection';
@@ -23,6 +23,11 @@ import { useRouter } from 'next/router';
 import Modal from '@/components/Modals/Modal';
 import MonitoringVideoList from '@/components/MonitoringVideoList';
 import usePrevPath from '@/zustand/usePrevPath';
+import MsgBtn from '@/public/icon/messageBtn.svg';
+import LessonModal from '@/components/Modals/ChooseLessonModal';
+import useManageUserToken from '@/hooks/useManageUserToken';
+import { Socket, io } from 'socket.io-client';
+import Play from '@/public/icon/play.svg';
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
@@ -133,65 +138,114 @@ function VideoListContainer() {
           </Button> */}
         </ButtonHeader>
         <MonitoringVideoList />
-        {/* 아래는 디자인만 구현 된 코드 - 삭제*/}
-        {/* <VideoWrapper>
-          {videoIdList.map((videoEl, idx) => (
-            <VideoContainer
-              key={idx}
-              currState="paused"
-              isChecked={checkedVideoList.includes(videoEl)}
-              onCheck={() =>
-                setCheckedVideoList((prev) =>
-                  prev.includes(videoEl)
-                    ? prev.filter((el) => el !== videoEl)
-                    : [...prev, videoEl],
-                )
-              }
-              onClick={() => setIsVideoModalOpen(true)}
-            />
-          ))}
-        </VideoWrapper> */}
       </VideoListWrapper>
+      <FloatingMsgBtn>
+        <Image
+          src={MsgBtn}
+          width={78}
+          height={78}
+          alt="메세지 보내기 버튼"
+        ></Image>
+      </FloatingMsgBtn>
     </>
   );
 }
 
 function BottomLiveInfoTab() {
+  const LessonOptions = [
+    '카페에서 음료 주문하기',
+    '가판대에서 물건 주문하기',
+    '튜토리얼',
+  ];
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedLesson, setSelectedLesson] = useState(LessonOptions[0]);
+  const [currPlayState, setCurrPlayState] = useState(true);
+
+  const { userToken } = useManageUserToken();
+
+  const socket = useRef<Socket | null>(null);
+
+  if (userToken?.length !== 0 && socket.current == null) {
+    socket.current = io('https://api.rabbitholecompany.com/', {
+      reconnectionDelayMax: 10000,
+      query: {
+        token: userToken,
+      },
+    });
+
+    socket!.current.on('connect', () => {
+      console.log('Connected to server');
+    });
+  }
+
+  const sendLessonToClass = (lessonText: string) => {
+    let msg = '';
+    switch (lessonText) {
+      case '카페에서 음료 주문하기':
+        msg = 'cafescene';
+        break;
+      case '가판대에서 물건 주문하기':
+        msg = 'watergungame';
+        break;
+      case '튜토리얼':
+        msg = 'tutorial';
+        break;
+    }
+    socket.current!.emit('send_message_to_class', {
+      message: {
+        action: 'move_scene',
+        params: {
+          scene: msg,
+        },
+      },
+    });
+  };
+
+  const handlePlayStateChange = ({ isStateStop }: { isStateStop: boolean }) => {
+    socket.current!.emit('send_message_to_class', {
+      message: {
+        action: isStateStop ? 'stop' : currPlayState ? 'play' : 'pause',
+        params: {},
+      },
+    });
+  };
+
   return (
     <LiveInfoTabWrapper>
       <LessonInfoDiv onClick={() => setIsModalOpen(true)}>
         <Image src={Docs} width={17} height={22} alt="수업안" />
-        1학년 심화 과정 수업안
+        {selectedLesson}
       </LessonInfoDiv>
       <Button
         type="PinkGrad"
         text="전송"
         style={{ height: 40, fontSize: '14rem', marginRight: '45px' }}
+        onClick={() => sendLessonToClass(selectedLesson)}
       ></Button>
       <Button
         type="GrayOutline"
-        style={{ borderRadius: '10px' }}
-        onClick={() => setIsModalOpen(true)}
+        style={{ borderRadius: '10px', width: 40, height: 40 }}
+        onClick={() => {
+          setCurrPlayState((prev) => !prev);
+          handlePlayStateChange({ isStateStop: false });
+        }}
       >
-        <Image src={Pause} alt="pause" />
+        <Image src={currPlayState ? Pause : Play} alt="pause" width={17} />
       </Button>
       <Button
         type="GrayOutline"
         style={{ color: COLORS.RED, height: 38, borderRadius: '10px' }}
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => handlePlayStateChange({ isStateStop: true })}
       >
         <StopDiv />
       </Button>
-      <Modal
-        content="개발 중인 기능입니다."
-        btnText={['확인']}
+      <LessonModal
         isOpen={isModalOpen}
         onCancelClick={() => setIsModalOpen(false)}
-        onOkClick={() => {
-          setIsModalOpen(false);
-        }}
-      ></Modal>
+        onOkClick={() => setIsModalOpen(false)}
+        setSelectedLesson={setSelectedLesson}
+      />
     </LiveInfoTabWrapper>
   );
 }
@@ -203,6 +257,7 @@ const VideoListWrapper = styled.div`
   padding: 20px 30px;
   height: 500px;
   overflow-y: auto;
+  position: relative;
 `;
 
 const ButtonContainer = styled.div`
@@ -283,4 +338,12 @@ const NoContentText = styled.h1`
   position: absolute;
   top: 490px;
   left: 550px;
+`;
+
+const FloatingMsgBtn = styled.button`
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: 95px;
+  bottom: 170px;
 `;
