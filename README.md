@@ -11,5 +11,10 @@
 ## 수업 실행 화면
 <img width="1680" alt="Screen Shot 2024-03-29 at 12 39 49 AM" src="https://github.com/arky02/RabbitHole/assets/46954114/1597fef8-ba6f-40cc-a510-861cb0fdcc93">
 
+
+https://github.com/arky02/RabbitHole/assets/46954114/9ab57887-0e24-404d-b4ca-e225cc85c348
+
+- WebRTC를 이용하여 해당 수업 세션에 접속한 학생들의 유니티 VR 실시간 화면을 한번에 볼 수 있는 선생님 화면입니다.
+
 ## 기타 페이지 디자인
 <img width="1680" alt="Screen Shot 2024-03-29 at 12 40 45 AM" src="https://github.com/arky02/RabbitHole/assets/46954114/8d4e6ae7-b8d9-47c9-b345-84613e693f15">
