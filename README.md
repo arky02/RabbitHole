@@ -1,6 +1,6 @@
 # RabbitHole 🐰 - VR LMS 시스템
 
-배포 URL : https://lms.rabbitholecompany.com
+배포 URL : https://rabbit-hole.vercel.app
 
 </br>
 
