@@ -1,4 +1,4 @@
-# RabbitHole 🐰 - VR LMS 시스템
+# RabbitHole 🐰 - 깡총영어 VR LMS 시스템
 
 배포 URL : https://rabbit-hole.vercel.app
 
